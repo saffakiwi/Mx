@@ -1,0 +1,17 @@
+.pic {
+    background-image:url("img/Hero.png");
+    width: 65%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    display: flex;   
+   
+}
+
+.signup {
+    width: 35%;
+    margin-left: 140px;
+    margin-top: 20px; 
+    /* align-items: end; */
+}
