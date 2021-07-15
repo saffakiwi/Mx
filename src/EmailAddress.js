@@ -1,28 +1,29 @@
 import React from "react";
 
-function Login() {
+function EmailAddress() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="86"
-      height="33"
-      viewBox="0 0 86 33"
+      width="94"
+      height="18"
+      viewBox="0 0 94 18"
     >
       <text
-        fill="#707070"
-        data-name="LOG IN"
+        fill="#a5a5a5"
+        data-name="Email Address"
         fontFamily="OpenSans-Bold, Open Sans"
-        fontSize="24"
+        fontSize="13"
         fontWeight="700"
         letterSpacing=".02em"
-        transform="translate(0 26)"
+        transform="translate(0 14)"
+        
       >
         <tspan x="0" y="0">
-          LOG IN
+          Email Address
         </tspan>
       </text>
     </svg>
   );
 }
 
-export default Login;
+export default EmailAddress;

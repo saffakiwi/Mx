@@ -1,16 +1,16 @@
 import React from "react";
 
-function Login() {
+function Signup() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="86"
+      width="101"
       height="33"
-      viewBox="0 0 86 33"
+      viewBox="0 0 101 33"
     >
       <text
-        fill="#707070"
-        data-name="LOG IN"
+        fill="#a5a5a5"
+        data-name="SIGN UP"
         fontFamily="OpenSans-Bold, Open Sans"
         fontSize="24"
         fontWeight="700"
@@ -18,11 +18,11 @@ function Login() {
         transform="translate(0 26)"
       >
         <tspan x="0" y="0">
-          LOG IN
+          SIGN UP
         </tspan>
       </text>
     </svg>
   );
 }
 
-export default Login;
+export default Signup;

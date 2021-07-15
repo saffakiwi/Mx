@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.MuiInputBase-root {
+  margin: 15px;
+}
+
+
+.MuiOutlined-root {
+  border-radius: 20px;
+}
+
+.MuiButton-label {
+  flex-direction: column;
+}
+
+.MuiButtonBase-root {
+  margin: 15px;
+}
+
+.MuiFormLabel-root {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.photo {
+  height: 250px;
+  width: 250px;
+  margin-right: 40px;
+  margin-top: 50px;
+}
