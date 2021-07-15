@@ -1,5 +1,7 @@
 .App {
+  display: flex;
   text-align: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -41,7 +43,6 @@
   margin: 15px;
 }
 
-
 .MuiOutlined-root {
   border-radius: 20px;
 }
@@ -63,5 +64,21 @@
   height: 250px;
   width: 250px;
   margin-right: 40px;
-  margin-top: 50px;
+  margin-top: 10px;
+}
+
+.exit {
+  margin-right: -30px;
+  margin-top: 0px;
+}
+
+.close {
+  border: none;
+  background-color: white;
+}
+
+.main {
+  display: "flex";
+  flex-direction: "column";
+  align-items: "center";
 }
