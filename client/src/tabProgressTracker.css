@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.imgWidth {
+  width: 10%;
+}
+.imgWidth2 {
+  width: 50%;
+}
+
+.mainDiv {
+  background-color: #b2e4fa;
+  padding: 10px;
+  min-height: 850px;
+}
+
+.topButtons {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.innerContainer {
+  background-color: #ebf6ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 1%;
+  border-radius: 10px;
+}
+.innerContainer2 {
+  background-color: #ebf6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2% 2%;
+  padding: 2% 1% 2% 2%;
+  border-radius: 10px;
+  height: 600px;
+  overflow: scroll;
+}
+.innerContainer2::-webkit-scrollbar {
+  width: 20px;
+}
+.innerContainer2::-webkit-scrollbar-thumb {
+  background: #43c0f6;
+  border-radius: 8px;
+}
+
+.studentsDiv {
+  background-color: #fff;
+  padding: 2% 2%;
+  display: flex;
+  max-width: 100%;
+}
+.completedProjects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.numberButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+/* -----------Student Profiles CSS------------ */
+
+.innerContainer3 {
+  background-color: #ebf6ff;
+  display: flex;
+  margin: 2% 2%;
+  padding: 2% 1% 2% 2%;
+  border-radius: 10px;
+  height: 600px;
+  overflow: scroll;
+}
+
+.studentOuterDiv {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.studentInnerDiv {
+  margin: 50px;
+  background-color: #fff;
+  height: 200px;
+  width: 194px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.studentPic {
+  margin-top: 20px;
+}
+
+.studentName {
+  margin-top: 20px;
+  color: #707070;
+}
