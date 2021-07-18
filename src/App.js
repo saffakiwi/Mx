@@ -8,26 +8,31 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Home from './componentshm/components/home.js';
 // import { StarTwoTone } from '@material-ui/icons';
 
 function App() {
 
   return (
-    // <div className="App">
-    // <ProfileViewer />
-    // </div>
-    <Router>
-      <Switch>
-        <Route path='/profileviewer'>
-          <ProfileViewer />
-        </Route>
-        <Route  path='/student'>
-          <Student />
-        </Route>
-      </Switch>
-      </Router>
+    <div className="App">
+    <Home />
+    </div>
+ 
 );
 }
 
 export default App; 
 
+{/* 
+  const [selectedStudent, setselectedStudent] = useState([]);
+
+  <Router>
+<Switch>
+  <Route path='/profileviewer'>
+    <ProfileViewer selectedStudent={selectedStudent}/>
+  </Route>
+  <Route  path='/student'>
+    <Student setSelectedStudent={setSelectedStudent}/>
+  </Route>
+</Switch>
+</Router> */}

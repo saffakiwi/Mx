@@ -1,0 +1,113 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    height: 55px;
+    background: #43C0F6;
+}
+
+.logo {
+    position: relative;
+    left: 200px;
+    top: 0px
+}
+
+.logoPic {
+    width: 170px;
+    align-items: left;
+}
+
+.middleButtons {
+    font-size: 14px;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 740;
+}
+
+.middleButtons a {
+    color: whitesmoke;
+    justify-content: space-between;
+    text-decoration: none;
+    position: relative;
+    left: 490px;
+    top: 26px;
+}
+
+
+.avatar {
+    position: relative;
+    left: 690px;
+    top:26px;
+}
+.flags {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    left: 850px;
+    top: 5px
+}
+.flags img {
+    width: 20PX;
+    height: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.lang {
+    color: whitesmoke;
+    font-size: 9px;
+    padding-right: 10px;
+    opacity: 80%;
+}
+
+
+.loginButtons {
+    display: flex;
+    justify-content: space-evenly;
+
+    height: 25px;
+    width: 170px;
+
+    position: relative;
+    left: 680px;
+    top: 26px;
+}
+
+.loginButtons p {
+    color: whitesmoke;
+}
+
+.register{
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+.login {
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+
+@media screen and (max-width:xl) and (orientation: portrait) {
+    .header {
+        height: 90px;
+    }
+    .logo {
+        position: relative;
+        left: 125px;
+    }
+
+    .middleButtons {
+        display: flex;
+        position: relative;
+        right: 550px;
+        top:40px;
+        }
+}

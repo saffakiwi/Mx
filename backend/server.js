@@ -27,6 +27,9 @@ app.get("/user", function (req, res) {
         res.send(result)
     } )
 
+// app.get("/user", function (req, res) {
+//     db.query("SELECT *FROM users WHERE user_id=2",(err, result) => {
+// })
 // app.get("/users", function (req, res) {
 //     var sql = "SELECT *FROM users  WHERE user_id=2" +req.query.user_id
 
@@ -52,4 +55,4 @@ app.listen(4000);
 //     date_of_birth: "28-04-2010",
 //     contact_number:"022 857 3845",
 //     email: "aidena@homai.edu"
-// }
+// },

@@ -43,9 +43,6 @@ const useStyles = makeStyles({
 
 export default function Student() {
     const styles = useStyles();
-    //    const handleSubmit=() => {
-    //        axios.post('http://localhost:3000/profile?id=2',{
-    //        })
        
 
     return (

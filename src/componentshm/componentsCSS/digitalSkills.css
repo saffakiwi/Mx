@@ -1,0 +1,64 @@
+.digitalSkills {
+  padding: 3%;
+  display:flex;
+  flex-direction: column;
+}
+.digitalSkillsText{
+    font-size: 25px;
+    text-align: center;
+   
+}
+.digitalSkillsArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 300px;
+    width: 1270px;
+    position: relative;
+    left: 230px;
+}
+
+.digitalSkillsCard {
+    position:relative;
+    flex-direction: row;
+    top: 40px;
+    left: 0;
+}
+.digitalSkillsCard p {
+    position: absolute;
+    top: 130px;
+    left: 12%;
+    font-size: 28px;
+    color: white;
+  text-align: center;
+    font-family: "Nunito";
+    font-weight: 800;
+}
+.photoCard {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 290px;
+    max-height: 290px;
+    opacity: 70%;
+
+}
+.iconOverlay {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    max-width: 90px;
+    max-height: 90px;
+}
+
+
+@media screen and (max-width: 1200px) and (orientation: portrait) {
+    .digitalSkills {
+        height: 1000px;
+    }
+    .digitalSkillsArea {
+        flex-direction: column;
+        position: relative;
+    }
+    
+}

@@ -82,9 +82,9 @@ export default function CardR() {
                         <Grid item xs={5} className={classes.a}>
                             <p>School</p>
                             <p>Teacher</p>
-                           <p>Email Address</p>
-                            <p>Contact No</p>
-                             <p>Date of Birth</p>
+                            <p>Email Address</p>
+                            <p>Contact No.</p>
+                            <p>Date of Birth</p>
                         </Grid>
 
                         {users.map(users => (
