@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#logodiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.logo {
+  width: 50%;
+  display: flex;
+}
+
+#imglogo {
+  justify-content: flex-start;
+  object-fit: contain;
+  margin-left: 40px;
+}
+
+#flagdiv {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  margin-right: 20px;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.flags {
+  flex-direction: row;
+}
+
+.nz {
+  margin: 5px;
+}
+
+.maori {
+}
+
+#images {
+  object-fit: none;
+  margin-right: 5px;
+  width: min-content;
+}

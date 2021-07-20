@@ -1,0 +1,157 @@
+#headings {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  width: 40%;
+  font-family: OpenSans-Bold;
+  color: #707070;
+  font-size: 18px;
+  margin-left: 30px;
+}
+
+#downloads {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+#complete {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  margin-right: 10px;
+  font-family: OpenSans-Bold;
+  color: #6c6c6c;
+}
+
+#button_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+#button2 {
+  margin-left: 10px;
+  background-color: #f91c85;
+  font-family: Nunito-Black;
+  font-size: 10px;
+  color: white;
+}
+
+#button3 {
+  margin-left: 10px;
+  background-color: #43c0f6;
+  font-family: Nunito-Black;
+  font-size: 10px;
+  color: white;
+}
+
+#cards {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+#content1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: OpenSans-Bold;
+  color: #707070;
+}
+
+#photo {
+  object-fit: contain;
+}
+
+#zoom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  margin-left: 50px;
+}
+
+#button1 {
+  background-color: #e5ab2c;
+  font-family: Nunito-Black;
+  font-size: 10px;
+  color: white;
+}
+
+h3 {
+  font-family: OpenSans-Bold;
+  color: #6c6c6c;
+  font-size: 14px;
+}
+
+#ptag {
+  font-size: 10px;
+}
+
+.headerbox {
+  direction: flex;
+  flex-direction: row;
+}
+
+#innercard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#helpav {
+  width: 15%;
+  justify-content: flex-start;
+}
+
+#helpname {
+  display: flex;
+  width: 60%;
+  justify-content: flex-start;
+}
+
+#helptime {
+  width: 35%;
+}
+
+#subav {
+  display: flex;
+  width: 15%;
+}
+
+#subname {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.subcontent {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#subtime {
+  width: 35%;
+}
