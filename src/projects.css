@@ -169,3 +169,14 @@ p {
 #navicon {
   object-fit: contain;
 }
+
+.checkmain {
+  display: flex;
+  width: 5%;
+  margin-top: 30px;
+}
+#checkbox {
+  display: flex;
+  width: 25px;
+  height: 25px;
+}

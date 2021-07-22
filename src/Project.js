@@ -127,8 +127,12 @@ projectcontent: {
 },
 
 checkbox: {
-    backgroundColor: "white,",
-    marginBottom: "auto"
+  
+  border: "none",
+  borderRadius: 1,
+  marginBottom: "auto",
+  color: "white",
+  fill: "white"
 },
 avatarnav: {
     justifyContent: "center",
@@ -280,11 +284,9 @@ return (
         
       {project.map(users => (
         <div id="content1">
-          <Checkbox classes={{root: styles.checkbox}}
-            color="secondary"
-            onChange={handleChange}
-          />
-
+          <div className="checkmain">
+          <input id="checkbox" type="checkbox"/>
+          </div>
           <Card classes={{root: styles.cards}} elevation={3}>
           <div id="innercard">
             <div id="subav">
@@ -292,7 +294,7 @@ return (
             </div>
     
             <div id="subname">
-              <div className="subcontent"><h2>{users.first_name.toUpperCase()} submitted his project</h2></div>
+              <div className="subcontent"><h2>{users.first_name.toUpperCase()} submitted their project</h2></div>
               <div className="subcontent">
               <img id="photo" src={users.submission} alt="screenshot" />
               </div>
@@ -318,9 +320,9 @@ return (
         
       {help.map(users => ( 
         <div id="content1">    
-          <Checkbox classes={{root: styles.checkbox}} 
-            onChange={handleChange}
-          />
+          <div className="checkmain">
+          <input id="checkbox" type="checkbox"/>
+          </div>
           <Card classes={{root: styles.cards}} elevation={3}>
             <div id="innercard">
               <div id="helpav">
@@ -328,11 +330,11 @@ return (
               </div>
             
               <div id="helpname"> 
-                <div><h2>{users.first_name.toUpperCase()} wants to show you her project</h2></div>
+                <div><h2>{users.first_name.toUpperCase()} wants to show you their project</h2></div>
               </div>
                 
               <div id="helptime">
-                
+              <div>{getHumanDate(users.date_created)}</div>
               </div>
             </div>
           </Card>

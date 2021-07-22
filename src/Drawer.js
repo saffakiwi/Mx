@@ -44,9 +44,11 @@ const styles = makeStyles((theme) => ({
     padding: theme.spacing(2, -1),
   },
   bottomDiv: {
+    display: "flex",
     position: "relative",
     width: "100%",
-    marginBottom: "20px"
+    marginBottom: "50px",
+    top: "250px"
   },
   bottomNav: {
     background: "#43C0F6",
@@ -104,17 +106,17 @@ export default function AppDrawer(props) {
     }, []) 
 
   const toggleDrawer = (open) => {
-    if (drawerState == false) {
+    if (drawerState === false) {
       setDrawerState(true)
       setDrawerWidth("280px")
       setCaret("./openCaretLeft.png")
-      setBottomTop("300px")
+      setBottomTop("210px")
       setBottomDirection("row")
     } else {
       setDrawerState(false)
       setDrawerWidth("70px")
       setCaret("./openCaretRight.png")
-      setBottomTop("180px")
+      setBottomTop("70px")
       setBottomDirection("column")
     }
   }
