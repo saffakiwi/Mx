@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import AutoDialog from './Login/LoginDialog.js';
 import Dialog from '@material-ui/core/Dialog';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Submain from './ProjectSub/Submain.js';
 
 const useStyles = makeStyles({
   root: {
@@ -51,6 +51,7 @@ function App() {
       <Dialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
       <AutoDialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
       </Dialog>
+      <Submain/>
     </div>
   );
 }
