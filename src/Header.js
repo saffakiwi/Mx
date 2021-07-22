@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import './header.css';
+
 //styling
 
 const useStyles = makeStyles({
@@ -11,7 +12,7 @@ const useStyles = makeStyles({
 header: {
     display: "flex",
     flexDirection: "row",
-    width: "100%"
+    width: "100%",
 },
 
 flags: {

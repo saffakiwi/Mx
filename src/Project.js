@@ -26,28 +26,37 @@ import clsx from 'clsx';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import AppDrawer from './Drawer.js';
+import Header from './Header';
 const drawerWidth = 240;
 
 //makeStyles section
 const useStyles = makeStyles({
 root: {
-  width: "100%"
+  width: "100%",
+  height: "100%",
 },
 background: {
+  display: "flex",
+  flexDirection: "column",
     width: "100%",
     backgroundColor: "#b2e4fa",
-    height: "700px",
+    height: "800px",
+    marginTop: "70px",
+   
     
 },
 
 box: {
-    width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
     backgroundColor: "#d9f4ff",
-    marginBottom: "30px",
+    marginBottom: "50px",
     marginTop: "10px",
     borderRadius: "20px",
     overflow: "auto",
-    height: "85%",
+    height: "80%",
     '&::-webkit-scrollbar': {
     width: '20px',
     marginRight: "20px"
@@ -154,44 +163,6 @@ root: {
     flexDirection: 'row'
     
   },
-menuButton: {
-    marginRight: 40,
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    
-    
-  },
-  drawerOpen: {
-    marginTop: "65px",
-    height: "635px",
-    backgroundColor: "#2596be",
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    marginTop: "65px",
-    height: "635px",
-    backgroundColor: "#2596be",
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }), 
-    overflowX: 'hidden',
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
-    },
-  },
  
   content: {
     flexGrow: 1,
@@ -229,7 +200,7 @@ useEffect(() => {
     }, []) 
 
     useEffect(() => {
-        axios.get("http://localhost:4000/users")
+        axios.get("http://localhost:4000/users/")
             .then(response => {
                 setUsers(response.data)
             })
@@ -261,128 +232,32 @@ const [selectedIndex, setSelectedIndex] = React.useState(1);
     setSelectedIndex(index);
   };
 
+  const getHumanDate = (dateToChange) => {
+    const date = new Date(dateToChange)
+    const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    return (
+      <div>
+        <h3>{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h3>
+        <h3>{date.getHours()}:{date.getMinutes()}</h3>
+      </div>
+    )
+    
+  }
+
 return (
     
 <div className={classes.root}>
-    <CssBaseline />
-  
-  <Drawer
-      variant="permanent"
-      className={clsx(classes.drawer, {
-        [classes.drawerOpen]: open,
-        [classes.drawerClose]: !open,
-      })}
-      classes={{
-        paper: clsx({
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        }),
-      }}
-    >
-     
-     {users.map(users => (
-        <div className="headerbox">
-          <Avatar classes={{root: styles.avatarnav}} src={users.profile_pic} />
-        </div>
-          ))}
-        <List component="nav" aria-label="main mailbox folders">
-        <ListItem
-          button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-        <ListItemIcon>
-          <Tracker/>
-        </ListItemIcon>
-        <ListItemText classes={{primary: styles.navlinks}} primary="PROGRESS TRACKER" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-        <ListItemIcon>
-          <DraftsIcon classes={{root: styles.navicons}} />
-        </ListItemIcon>
-        <ListItemText classes={{primary: styles.navlinks}} primary="STUDENT PROFILES" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-        <ListItemIcon>
-          <DraftsIcon classes={{root: styles.navicons}}/>
-        </ListItemIcon>
-        <ListItemText classes={{primary: styles.navlinks}} primary="HELP REQUESTS" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-        <ListItemIcon>
-          <DraftsIcon classes={{root: styles.navicons}}/>
-        </ListItemIcon>
-        <ListItemText classes={{primary: styles.navlinks}} primary="PROJECT SUBMISSIONS" />
-        </ListItem>
-        <ListItem
-          button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-        <ListItemIcon>
-          <DraftsIcon classes={{root: styles.navicons}}/>
-        </ListItemIcon>
-        <ListItemText classes={{primary: styles.navlinks}} primary="PROJECT LIBRARY" />
-        </ListItem>
-        </List>
-      
-      <div className={classes.toolbar}>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === 'rtl' ? <ArrowLeftIcon /> : <ArrowLeftIcon fontSize="large" />}
-        </IconButton>
-      </div>
-      <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          className={clsx(classes.menuButton, {
-            [classes.hide]: open,
-          })}
-        >
-        <ArrowRightIcon fontSize="large"/>
-        </IconButton>
-        <List classes={{root: styles.bottomnav}}>
-          <Button size="small">
-          <CheckIcon fontSize="small"/>
-          <p id="ptag">Profile</p>
-          </Button>
-       
-       
-          <Button size="small">
-          <CheckIcon fontSize="small"/>
-          <p id="ptag">Settings</p>
-          </Button>
-        
-        
-          <Button size="small">
-          <CheckIcon fontSize="small"/>
-          <p id="ptag">Logout</p>
-          </Button>
-        </List>
-    </Drawer>
-     
+<AppDrawer />     
 <Container  classes={{root: styles.background}}  maxWidth="xl">
-    
+  
     <div id="button_group">
         <Button id="button1" classes={{root: styles.button1, text: styles.button1}} size="small" variant="contained">Take Screenshot</Button>
         <Button id="button2" classes={{root: styles.button2}} size="small" variant="contained">Help Centre</Button>
         <Button id="button3" classes={{root: styles.button3}} size="small" variant="contained">More Projects</Button>
     </div>
 
-<Container classes={{root: styles.box}} maxWidth="lg">
+<Container classes={{root: styles.box}} maxWidth="xl">
 
   <div id="headings">
       <h1>PROJECT SUBMISSIONS</h1>
@@ -418,15 +293,18 @@ return (
     
             <div id="subname">
               <div className="subcontent"><h2>{users.first_name.toUpperCase()} submitted his project</h2></div>
-              <div className="subcontent"><img id="photo" src={users.submission} alt="screenshot"/></div>
+              <div className="subcontent">
+              <img id="photo" src={users.submission} alt="screenshot" />
+              </div>
               <div id="zoom">
                 <ZoomInIcon/>
-                <p>ENLARGE PHOTO</p>
+                <h3>ENLARGE PHOTO</h3>
               </div>
               </div>
+               
 
             <div id="subtime">
-
+            <div>{getHumanDate(users.date_submitted)}</div>
             </div>
           </div>
           </Card>
@@ -454,6 +332,7 @@ return (
               </div>
                 
               <div id="helptime">
+                
               </div>
             </div>
           </Card>
