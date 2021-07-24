@@ -1,30 +1,15 @@
 import './Dialog.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Students from './Students.js';
 import StudentsText from './StudentsText.js';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridList from '@material-ui/core/GridList';
-import Login from './Login.js';
-import TextField from '@material-ui/core/TextField';
-import {Paper, Tabs, Tab} from '@material-ui/core';
-import PropTypes from 'prop-types';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import {ThemeProvider, createMuiTheme, withStyles, position} from '@material-ui/core/styles';
-import Signup from './Signup.js';
-import LoginLine from './LoginLine.js';
-import LoginButton from './LoginButton.js';
-import TeacherImage from './TeacherImage.js';
 import TeacherText from './TeacherText.js';
 import Cross from './Cross.js';
 import CrossOne from './CrossOne.js';
-import Divider from '@material-ui/core/Divider';
-import {useState, useEffect} from 'react';
-import loginFrom from './LoginComp.js';
-import signupForm from './SignupComp.js';
-import Form from './Form.js';
+import FormLS from './FormLS.js';
+import {useState} from 'react';
+
 
 const useStyles = makeStyles({
 root: {
@@ -67,91 +52,56 @@ form: {
 },
 });
  
-function AutoDialog(props) {
+function AutoDialog() {
 
-//parameters for dialog to open
-  const { onClose, selectedValue, open } = props;
+//parameters for dialog to close
+const [open, setOpen] = useState();
+const handleClose = () => {
+  setOpen(open);
+};
 
-  const handleClose = () => {
-    onClose(selectedValue);
-  };
-
-  const handleListItemClick = (value) => {
-    onClose(value);
-  };
- 
-  //use of makeStyles
-  const styles = useStyles();
-
-const [formSelection, setFormSelection] = useState(1);
-const handleChange = (prop) => {
-    console.log(prop)
-    setFormSelection(prop)
-}
-
-
+//use of makeStyles
+const styles = useStyles();
 
 return(
   <Grid container={true} classes={{container: styles.maingrid}} spacing={3}>
-    
-    <Grid item={true} classes={{item: styles.griditem}} md={5}>
-      <div className="student">
-          <Students />
-      </div>
-      <div className="student">
-          <StudentsText />
-      </div>
-      <div className="student">
-        <div className="lsbuttons">
-          <Button classes={{label: styles.button}} onClick={() => handleChange(1)}>
-          <Login />
-          <LoginLine />
-          </Button>
-        </div>
-        <div>
-          <Button classes={{label: styles.button}} onClick={() => handleChange(0)}>
-          <Signup/>
-          <LoginLine/>
-          </Button>
-        
-        </div>
-      </div>
 
-        <Form className="main" formSelection={formSelection}/>
-   
+{/*.................................Student side on dialog box...................................*/}    
+    <Grid item={true} classes={{item: styles.griditem}} md={5}>
+      <div className="left">
+        <div className="student">
+          <Students />
+        </div>
+        <div className="student">
+          <StudentsText />
+        </div>
+        <div className="student">
+          <FormLS />
+        </div>
+      </div>
     </Grid>   
     
     <img src="line.png" alt="line"/>
-        
+
+ {/*.................................Teacher side on dialog box...................................*/}         
     <Grid item={true} classes={{item: styles.griditem}} md={5}>
-      <div >
-        <button className="close" type="button">
-    <Cross className="exitbutton"/>
-    <CrossOne />
+    <div className="right">
+        <button className="close" type="button" onClick={() => handleClose(open)} >
+          <Cross className="exitbutton"/>
+          <CrossOne />
         </button>
       <div className="student">
         <img className="photo" src="teacher.png" alt="teacher" />
       </div>
       <div className="student">
-    <TeacherText />
+        <TeacherText />
       </div>
       <div className="student">
-      <div >
-        <Button classes={{label: styles.button}} onClick={() => handleChange(1)}>
-        <Login />
-        <LoginLine />
-        </Button>
+        <FormLS />
       </div>
-        <Button classes={{label: styles.button}} onClick={() => handleChange(0)}>
-        <Signup/>
-        <LoginLine/>
-        </Button>
-      </div>
-
-        <Form className="main" formSelection={formSelection}/>
-     </div>
+    </div>
     </Grid> 
-</Grid>
+  </Grid>
 
 )};
 

@@ -37,7 +37,7 @@ function SignupButton() {
         </g>
         <text
           fill="#f0efef"
-          data-name="LOG IN"
+          data-name="SIGN UP"
           fontFamily="Nunito-Black, Nunito"
           fontSize="16"
           fontWeight="800"
@@ -45,7 +45,7 @@ function SignupButton() {
           transform="translate(904.5 943)"
         >
           <tspan x="-28.208" y="0">
-            LOG IN
+            Sign Up
           </tspan>
         </text>
       </g>
