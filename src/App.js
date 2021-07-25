@@ -10,6 +10,7 @@ function App() {
     <div className="App">
 
     <Home />
+    <Projects />
     </div>
   );
 }
