@@ -6,8 +6,46 @@ import { Container } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import User from '../homepageIMG/headerIMGS/UserCircle.png'
 import "../componentsCSS/header.css"
+import { makeStyles } from '@material-ui/core/styles';
+import AutoDialog from '../../Login/LoginDialog.js';
+import Dialog from '@material-ui/core/Dialog';
+
+
+const useStyles = makeStyles({
+    root: {
+      flexGrow: 1,
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+    
+    },
+    
+    dialog: {
+      display: "flex",
+      flexDirection:"row",
+      overflowY: "hidden",
+      overflowX: "hidden",
+      maxWidth: "700px",
+    },
+  });
 
 export default function Header() {
+
+    const [open, setOpen] = React.useState(false);
+    const [selectedValue, setSelectedValue] = React.useState();
+    
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+    
+    const handleClose = (value) => {
+      setOpen(false);
+      setSelectedValue(value);
+    };
+  
+    const styles = useStyles();
+  
+
     return (
         <div>
             <Container maxWidth="xl">
@@ -30,8 +68,13 @@ export default function Header() {
                             <img src={User} style={{ height: "20px", width: "20px" }} /></IconButton> </div>
 
                     <div className="loginButtons">
-                        <a className="register" href="#">REGISTER </a><p>|</p>
-                        <a className="login" href="#">    LOGIN </a>
+                    <button onClick={handleClickOpen}>
+                    <a className="register" href="#">REGISTER|LOGIN </a>
+                    </button>
+                    <Dialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
+                        <AutoDialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
+                    </Dialog>
+                        
                     </div>
                 </div>
             </Container>
