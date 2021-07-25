@@ -7,11 +7,12 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import CheckIcon from '@material-ui/icons/Check';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import {makeStyles} from '@material-ui/core/styles';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './projects.css';
 import axios from 'axios';
 import AppDrawer from './Drawer.js';
-
+import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 //makeStyles section
 const useStyles = makeStyles({
@@ -172,6 +173,16 @@ const getHumanDate = (dateToChange) => {
     )
 }
 
+
+  const [isZoomed, setIsZoomed] = useState(false)
+  const handleImgLoad = () => {
+    setIsZoomed(isZoomed)
+  }
+  const handleZoomChange = useCallback(shouldZoom => {
+    setIsZoomed(shouldZoom)
+  }, [])
+
+
 return (
     
   <div className={classes.root}>
@@ -225,13 +236,21 @@ return (
     
             <div id="subname">
               <div className="subcontent"><h2>{users.first_name.toUpperCase()} submitted their project</h2></div>
-              <div className="subcontent">
-                <img id="photo" src={users.submission} alt="screenshot" />
-              </div>
-              <div id="zoom">
-                <ZoomInIcon/>
+      
+                <ControlledZoom className="imagezoom" isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+                <img id="photo" 
+                  src={users.submission} 
+                  alt="screenshot"
+                  onLoad={handleImgLoad}
+                  width="200"
+                />
+                </ControlledZoom>
+              
+              <div id="zoom">            
+                <ZoomInIcon />
                 <h3>ENLARGE PHOTO</h3>
               </div>
+              
             </div>
             
             <div id="subtime">
