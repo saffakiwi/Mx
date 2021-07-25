@@ -6,8 +6,6 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-
-
 const db = mysql.createConnection({
   host: 'database-123.cwr9dzf6bvdb.ap-southeast-2.rds.amazonaws.com',
   user: 'admin',
@@ -44,6 +42,23 @@ app.post('/getUser', function (req, res) {
       res.send(result)
       console.log(result)
     })
-})
+});
+
+app.post('/login', (req, res) => {
+  db.query("SELECT * FROM users WHERE email = ? AND password = ?", [req.body.email, req.body.password], function(err, result) {
+  if (err) {
+  console.log(err)
+  } else {
+  if (result.length > 0) {
+  console.log("Check Successful")
+  res.sendStatus(200)
+  } else {
+  console.log("Check Unsuccessful")
+  res.sendStatus(401)
+  }
+  }
+  })
+  })
+
 app.listen(4001)
 

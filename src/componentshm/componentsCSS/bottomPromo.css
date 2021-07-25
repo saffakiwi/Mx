@@ -1,0 +1,84 @@
+.bottomPromo {
+    display: flex;
+    justify-content: space-around;
+    height: 490px; 
+    padding:2%;
+}
+
+.bottomPromoPic {
+    flex:50%;
+    height: 400px;
+    width: 570px;
+    position: relative;
+    left: 90px;
+}
+.bottomPromoPic img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.bottomPromoText {
+    flex:50%;
+    height: 340px;
+    width: 560px;
+    position: relative;
+    top: 20px;
+    right:50px;
+}
+.bottomPromoText h2 {
+    font-size: 38px;
+}
+.bottomPromoText h3 {
+    font-size: 27px;
+    font-family: "Open Sans";
+    font-weight: initial;
+    color: #6c6c6c;
+}
+.bottomPromoText p {
+    font-size: 18px;
+    font-family: "Open Sans";
+}
+
+.bottomPromoButtons {
+    position: relative;
+    top:70px;
+   display: flex;
+    justify-content: space-between;
+     height: 20px;
+    width: 400px;
+     margin-top: 10px;
+    margin-bottom: 20px;
+}
+.button1 {
+    min-width: 165px;
+    height: 36px;
+    background-color: white;
+    color: grey;
+    border: 3.5px solid #43C0F6;
+    border-radius: 9px;
+    font-weight: 900;
+    font-family: "Nunito";
+}
+.button2 {
+    min-width: 165px;
+    height: 36px;
+font-weight: 800;
+    color: white;
+    background-color:#F91c85 ;
+    border-color:#F91c85;
+    font-family: "Nunito";
+    border-radius: 9px;
+    border-width: 3.5px;
+}
+
+@media screen and (max-width:900px) {
+     .bottomPromoText {
+        flex-direction:column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bottomPromoPic {
+        width: 50%;
+    }
+}

@@ -1,0 +1,41 @@
+.info {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+.info h2 {
+    font-size: 40px;
+    text-align: center;
+}
+.infoButtons {
+    left: 260px;
+    top: 20px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    height: 20px;
+    width: 1200px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left:15%;
+}
+.buttonStyle {
+    min-width: 230px;
+    height: 33px;
+    background:white;
+    border-radius: 8px;
+    border: 4px solid #43C0F6;
+    font-family: "Nunito";
+    font-weight: 900;
+    font-size: 15px;
+}
+.active {
+    background:#EFEFF1;
+   border-color:#EFEFF1;
+}
+
+@media screen and (max-width: 1000px) {
+    .infoButtons {
+        flex-direction:column;
+    }
+}
