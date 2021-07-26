@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import CheckIcon from '@material-ui/icons/Check';
+import {CheckIcon} from '@material-ui/icons';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import {makeStyles} from '@material-ui/core/styles';
 import { useState, useEffect, useCallback } from 'react';
