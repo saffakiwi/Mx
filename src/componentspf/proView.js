@@ -77,13 +77,7 @@ const useStyles = makeStyles({
         padding: "12px",
         marginRight: "0",
     },
-    // p: {
-    //     fontFamily: "Nunito",
-    //     fontSize: "20px",
-    //     // fontWeight: "lighter",
-    //     color: "#a5a5a5",
-    //     padding: "20px",
-    // }
+  
 });
 
 
@@ -102,6 +96,18 @@ export default function ProView({ match }) {
             })
             .catch(err => console.log(err))
     }, [])
+
+    // const getHumanDate = (dateToChange) => {
+    //     const date = new Date(dateToChange)
+    //     const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+    //     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    //       return (
+    //         <div>
+    //           <h3>{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h3>
+    //           <h3>{date.getHours()}:{date.getMinutes()}</h3>
+    //         </div>
+    //       )
+    //   }
 
     return (
         <>

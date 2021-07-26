@@ -20,6 +20,6 @@ export default function BottomPromo() {
                     </div>
                 </div>
             </div>
-        </Container>
+     </Container>
     )
 }

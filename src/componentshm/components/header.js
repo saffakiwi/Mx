@@ -2,7 +2,7 @@ import React from 'react'
 import logoWorks from '../homepageIMG/headerIMGS/logoWorks.png';
 import NZFlag from '../homepageIMG/headerIMGS/NZFlag.png';
 import MaoriFlag from '../homepageIMG/headerIMGS/MaoriFlag.png';
-import { Container } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import User from '../homepageIMG/headerIMGS/UserCircle.png'
 import "../componentsCSS/header.css"
@@ -19,7 +19,6 @@ const useStyles = makeStyles({
       justifyContent: "center",
     
     },
-    
     dialog: {
       display: "flex",
       flexDirection:"row",
@@ -53,8 +52,9 @@ export default function Header() {
 
     return (
         <div>
-            <Container class={{root: styles.header}} maxWidth="xl">
-                <div className="header1">
+            <Container maxWidth="xl">
+            <div class={{root:styles.header}} >
+                <div className="header5">
                     <div className="logo1">
                         <img className="logoPic" src={logoWorks} alt="level up logo" /> </div>
 
@@ -73,15 +73,16 @@ export default function Header() {
                             <img src={User} style={{ height: "20px", width: "20px" }} /></IconButton> </div>
 
                     <div className="loginButtons">
-                    <button onClick={handleClickOpen}>
-                    <p>REGISTER|LOGIN </p>
-                    </button>
+                    <Button style={{ height: "20px"}}  onClick={handleClickOpen}>
+                    <p>REGISTER | LOGIN </p>
+                    </Button>
                     <Dialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
                         <AutoDialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
                     </Dialog>
                         
                     </div>
                 </div>
+            </div>
             </Container>
         </div>
     )

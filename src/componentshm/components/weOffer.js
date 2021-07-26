@@ -102,6 +102,6 @@ export default function WeOffer() {
                 </div>
 
             </div>
-        </Container>
+         </Container>
     )
 }

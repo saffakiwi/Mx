@@ -2,54 +2,68 @@
   color: #707070;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* .maindiv {
+
+.bbbanner {
+  background-image: url("../homepageIMG/bannerIMGs/babyBanner.png") ;
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: contain;
+  position: relative;
+  align-items: center;
+  
+}
+
+.text7 {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-} */
-.banner {
-  position: relative;
-}
+  flex-direction: column;
+  width: 35%;
+ padding: 30px 200px 100px; 
+ position:absolute;
+ 
 
-.babyImage {
-  max-width: 100%;
 }
-
-.text {
-  flex: 50%;
-  height: 270px;
-  width: 520px;
-  position: absolute;
-  left: 230px;
-  top: 40px;
-}
-.text h1 {
-  position: relative;
-  align-items: top;
+.text7 h1 {
   font-size: 50px;
   line-height: 100%;
   font-weight: 700;
-  margin-top: 0%;
 }
-.text p {
+.text7 p {
   font-size: 22px;
   font-family: "Open Sans";
 }
 
-.subtext {
-  height: 40px;
-  width: 150px;
-  position: relative;
-  left: 60%;
-  /* top: 20px; */
-  font-size: 9.5px;
-  font-weight: 100;
+.bannerButton {
+display: flex;
+flex-direction: row;
+/* width: 100%; */
+/* justify-items: right; */
+right: 23%;
+position: absolute;
+bottom: 14%;
+
 }
 
-@media screen and (max-width: 768px) {
-  .promoBanner,
-  .promoText {
-    flex-direction: column;
-  }
+
+.subtext {
+  height: 40px;
+  width: 180px;
+  position: absolute;
+right:23%;
+  bottom: 5%;
+  object-position: bottom;
+
 }
+
+.buttonText {
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row-reverse; */
+}
+/* 
+@media screen and (max-width: 768px) {
+  .text7, .buttonText {
+    object-fit: none;
+  }
+} */

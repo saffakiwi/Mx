@@ -1,8 +1,9 @@
 .bottomPromo {
     display: flex;
     justify-content: space-around;
-    height: 490px; 
-    padding:2%;
+    /* height: 490px;  */
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .bottomPromoPic {
@@ -10,20 +11,22 @@
     height: 400px;
     width: 570px;
     position: relative;
-    left: 90px;
+    Left:15%;
 }
 .bottomPromoPic img {
-    max-height: 100%;
+    max-height: 85%;
     max-width: 100%;
+    padding: 5px 0px;
 }
 
 .bottomPromoText {
     flex:50%;
-    height: 340px;
-    width: 560px;
+    /* height: 340px;
+    width: 560px; */
     position: relative;
     top: 20px;
-    right:50px;
+    padding-left: 180px;
+    padding-right: 180px;
 }
 .bottomPromoText h2 {
     font-size: 38px;
@@ -37,6 +40,7 @@
 .bottomPromoText p {
     font-size: 18px;
     font-family: "Open Sans";
+    padding-right: 140px;
 }
 
 .bottomPromoButtons {
@@ -46,8 +50,6 @@
     justify-content: space-between;
      height: 20px;
     width: 400px;
-     margin-top: 10px;
-    margin-bottom: 20px;
 }
 .button5 {
     min-width: 165px;
@@ -65,20 +67,19 @@
 font-weight: 800;
     color: white;
     background-color:#F91c85 ;
-    border-color:#F91c85;
+    border: 3.5px solid #F91c85;
     font-family: "Nunito";
     border-radius: 9px;
     border-width: 3.5px;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1000px)  and (orientation: portrait) {
      .bottomPromoText {
-        flex-direction:column;
+        flex-direction:row;
+        position: relative;
+        font-size: 50%;
+    }  .bottomPromoPic {
+        width: 80%;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .bottomPromoPic {
-        width: 50%;
-    }
-}
