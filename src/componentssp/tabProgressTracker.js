@@ -1,7 +1,22 @@
 import "../tabProgressTracker.css"
 import NumberButtons from "./numberButtons"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 export default function TabProgressTracker(props) {
+
+  // const [users, setUsers] = useState([])
+  // // const [userInfo, setUserInfo] = useState([])
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:4001/users")
+  //   .then((response) => {
+  //     setUsers(response.data)
+  //   })
+
+  // }, )
+
+
   return (
     <>
       <div className="mainDiv">

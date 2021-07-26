@@ -7,6 +7,7 @@ import {useState} from 'react';
 import Projects from '..//Project.js';
 import {BrowserRouter as Router ,Switch,Route,Link} from 'react-router-dom'
 
+
 function LoginForm() {
 
 const [email, setEmail] = useState('')
@@ -28,7 +29,6 @@ const handleLogin = () => {
 }
   
 return(
-
  
   <form className="form">
     <input className="inputbox" 
@@ -42,13 +42,10 @@ return(
       type="password" label="Password" 
       onChange={(e) => setPassword(e.target.value)} 
       placeholder="  Password"/><br/>
-    
-     <a href="/projects"><Button onClick={handleLogin} >
+     <a href='./progresstracker'><Button onClick={handleLogin} >
       <LoginButton />
      </Button></a>
   </form>
-
-
 )}
 
 export default LoginForm;

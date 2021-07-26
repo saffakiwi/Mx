@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-#headingps {
+h1 {
   display: flex;
   align-items: center;
   font-size: 30px;
@@ -74,16 +74,8 @@
   width: 100%;
 }
 
-#cardtext {
+h2 {
   font-size: 20px;
-  font-family: OpenSans-Bold;
-  color: #707070;
-}
-
-#datetime {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 18px;
   font-family: OpenSans-Bold;
   color: #707070;
 }
@@ -108,7 +100,7 @@
   color: white;
 }
 
-#zoomimage {
+h3 {
   font-family: OpenSans-Bold;
   color: #6c6c6c;
   font-size: 14px;
@@ -142,12 +134,12 @@ p {
 
 #helpname {
   display: flex;
-  width: 55%;
+  width: 60%;
   justify-content: flex-start;
 }
 
 #helptime {
-  width: 21%;
+  width: 35%;
   justify-content: flex-start;
 }
 

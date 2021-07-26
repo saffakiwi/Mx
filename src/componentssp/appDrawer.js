@@ -15,14 +15,17 @@ import {
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import TabProgressTracker from "./tabProgressTracker"
 import TabStudentProfiles from "./tabStudentProfiles"
+import Projects from "../Project"
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
+    display: "flex",
     width: "inherit",
     marginTop: "60px 0",
     paddingTop: "80px",
     backgroundColor: "#43C0F6",
     textAlign: "center",
+    flexShrink: 0,
   },
   link: {
     textDecoration: "none",
@@ -157,7 +160,7 @@ export default function AppDrawer(props) {
               </ListItem>
             </Link>
 
-            <Link to="/projectSubmissions" className={classes.link}>
+            <Link to="/projects" className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
                   <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
@@ -212,7 +215,7 @@ export default function AppDrawer(props) {
         </Drawer>
         {/* -------------- Routes ------------------- */}
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/progresstracker">
             <main className={classes.content}>
               <div className={classes.toolbar} />
 
@@ -235,10 +238,11 @@ export default function AppDrawer(props) {
             </main>
           </Route>
 
-          <Route exact path="/projectSubmissions">
+          <Route exact path="/projects">
             <main className={classes.content}>
-              <div className={classes.toolbar} />
-              <h2>Project Submissions</h2>
+              {/* <div className={classes.toolbar} /> */}
+              {/* <h2>Project Submissions</h2> */}
+              <Projects />
             </main>
           </Route>
 

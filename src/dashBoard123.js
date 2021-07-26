@@ -1,8 +1,13 @@
 import "./App.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
+<<<<<<< HEAD:src/dashBoard.js
 import AppDrawer from './componentssp/appDrawer';
 import ProView from './componentspf/proView.js'
+=======
+import AppDrawer from "./componentssp/appDrawer"
+import ProView from '../componentspf/proView'
+>>>>>>> e3d638a7d59501f5c8345c54df1b36452d7b9eef:src/dashBoard123.js
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,12 +29,17 @@ function DashBoard() {
   }, )
 
   return (
+<<<<<<< HEAD:src/dashBoard.js
     <div className="DashBoard">
     
+=======
+    <div>
+
+>>>>>>> e3d638a7d59501f5c8345c54df1b36452d7b9eef:src/dashBoard123.js
      <Router>
         <Switch>
           <Route path='/users/:user_id' exact component={ProView} />
-          <Route path='/user'>
+          <Route path='/progresstracker'>
             <AppDrawer user={users}/>
           </Route>
         </Switch>
