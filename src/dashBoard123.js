@@ -29,13 +29,8 @@ function DashBoard() {
   }, )
 
   return (
-<<<<<<< HEAD:src/dashBoard.js
-    <div className="DashBoard">
-    
-=======
     <div>
 
->>>>>>> e3d638a7d59501f5c8345c54df1b36452d7b9eef:src/dashBoard123.js
      <Router>
         <Switch>
           <Route path='/users/:user_id' exact component={ProView} />

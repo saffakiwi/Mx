@@ -141,7 +141,9 @@ const classes = useStyling();
 const [project, setProject] = useState([])
 const [help, setHelp] = useState([])
 const [users, setUsers] = useState([])
-
+const [done, setDone] = useState([1])
+const [newDone, setNewDone] = useState([])
+const [id, setId] = useState([])
 useEffect(() => {
   axios.get("http://localhost:4001/progress_history")
     .then(response => {
@@ -175,7 +177,13 @@ const getHumanDate = (dateToChange) => {
     )
 }
 
-
+const updateTask = (id) => {
+  axios.put("http://localhost4000/update", {done: newDone, id: id}).then(
+    (response) => {
+      console.log("updated")
+    }
+  )
+}
   const [isZoomed, setIsZoomed] = useState(false)
   const handleImgLoad = () => {
     setIsZoomed(isZoomed)
@@ -213,7 +221,8 @@ return (
       </div>
 
       <div id="complete">
-        <Button classes={{root: styles.buttongroup}}>
+        <Button classes={{root: styles.buttongroup}}
+        onClick={() =>(updateTask(id))}>
           <CheckIcon/>
           <h3 id="zoomimage">MARK AS COMPLETE PROJECT</h3>
           </Button>
@@ -227,6 +236,7 @@ return (
       <div id="content1">
         <div className="checkmain">
           <input id="checkbox" type="checkbox"/>
+  
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>
@@ -269,7 +279,10 @@ return (
     {help.map(users => ( 
       <div id="content1">    
         <div className="checkmain">
-          <input id="checkbox" type="checkbox"/>
+          <input id="checkbox" type="checkbox"
+          onChange={(event) => {
+            setNewDone(event.target.value);
+          }}/>
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>
