@@ -71,7 +71,7 @@
   justify-content: center;
 }
 
-.right {
+.rightbox {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -88,7 +88,7 @@
 .exit {
   margin-right: -30px;
 }
-.left {
+.leftbox {
   display: flex;
   flex-direction: column;
   width: 100%;

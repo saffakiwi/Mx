@@ -186,7 +186,7 @@ const getHumanDate = (dateToChange) => {
 return (
     
   <div className={classes.root}>
-    <AppDrawer />     
+     
     <Container  classes={{root: styles.background}}  maxWidth="xl">
 
 {/*....................................................Top right buttons on contents page.........................................*/} 

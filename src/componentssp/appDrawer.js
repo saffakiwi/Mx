@@ -90,14 +90,14 @@ export default function AppDrawer(props) {
       setDrawerWidth("280px")
       setUserImage("visible")
       setCaret("./photos/openCaretLeft.png")
-      setBottomTop("290px")
+      setBottomTop("250px")
       setBottomDirection("row")
     } else {
       setDrawerState(false)
       setDrawerWidth("70px")
       setUserImage("hidden")
       setCaret("./photos/openCaretRight.png")
-      setBottomTop("180px")
+      setBottomTop("110px")
       setBottomDirection("column")
     }
   }

@@ -13,7 +13,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
 const handleLogin = () => {
-  axios.post('http://localhost:4001/login', {
+  axios.post('http://localhost:4000/login', {
     "email": email,
     "password": password,
   })
@@ -28,8 +28,8 @@ const handleLogin = () => {
 }
   
 return(
-  <>
-  <Router>
+
+ 
   <form className="form">
     <input className="inputbox" 
       value={email} 
@@ -42,19 +42,13 @@ return(
       type="password" label="Password" 
       onChange={(e) => setPassword(e.target.value)} 
       placeholder="  Password"/><br/>
-    <Link to="src/Project.js">
-     <Button onClick={handleLogin} >
+    
+     <a href="/projects"><Button onClick={handleLogin} >
       <LoginButton />
-     </Button>
-    </Link>
+     </Button></a>
   </form>
-  <Switch>
-    <Route exact path="/projects">
-    <Projects/>
-    </Route>
-  </Switch>
-  </Router>
-  </>
+
+
 )}
 
 export default LoginForm;
