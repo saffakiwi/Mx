@@ -54,8 +54,8 @@ export default function Header() {
     return (
         <div>
             <Container class={{root: styles.header}} maxWidth="xl">
-                <div className="header">
-                    <div className="logo">
+                <div className="header1">
+                    <div className="logo1">
                         <img className="logoPic" src={logoWorks} alt="level up logo" /> </div>
 
                     <div className="middleButtons">
@@ -63,7 +63,7 @@ export default function Header() {
                         <a href="#"> FEATURES</a>
                         <a href="#">TEACHERS </a> </div>
 
-                    <div className="flags">
+                    <div className="flags1">
                         <div className="lang"> LANG </div>
                         <img src={NZFlag} alt="nz flag" />
                         <img src={MaoriFlag} alt="maori flag" /> </div>

@@ -49,7 +49,7 @@ export default function WeOffer() {
         <Container classes={{root: styles.root}} maxWidth="xl">
             <div className="weOffer" value={changeScreen}>
 
-                <div className="left">
+                <div className="left5">
                     <div className="weOfferText">
                         <h2>What we offer</h2>
                         <br />
@@ -88,7 +88,7 @@ export default function WeOffer() {
                     </div>
                 </div> <br />
                
-               <div className="right">
+               <div className="right5">
                 <div className="weOfferPic">
                     <p2>{image}</p2>
                     <div className="radioButtons">

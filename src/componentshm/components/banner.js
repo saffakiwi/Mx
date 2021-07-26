@@ -12,7 +12,6 @@ const useStyles = makeStyles({
       display: "flex",
       flexDirection: "row",
       justifyContent: "center",
-    
     },
 })
 
@@ -21,7 +20,7 @@ export default function Banner() {
     const styles = useStyles();
 
     return (
-        <div className="maindiv" >
+        <div className={styles.root}>
             {/* <Container class={{root: styles.root}} maxWidth="xl"> */}
                 {/* <div className="banner"> */}
          <img className="babyImage" src={babyBanner} alt="this is baby" />

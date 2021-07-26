@@ -1,11 +1,11 @@
-.header {
+.header1 {
     display: flex;
     flex-wrap: wrap;
     height: 55px;
     background: #43C0F6;
 }
 
-.logo {
+.logo1 {
     position: relative;
     left: 200px;
     top: 0px
@@ -39,14 +39,14 @@
     left: 690px;
     top:26px;
 }
-.flags {
+.flags1 {
     display: flex;
     cursor: pointer;
     position: relative;
     left: 850px;
     top: 5px
 }
-.flags img {
+.flags1 img {
     width: 20PX;
     height: 10px;
     margin-left: 4px;
@@ -96,10 +96,10 @@
 
 
 @media screen and (max-width:xl) and (orientation: portrait) {
-    .header {
+    .header1 {
         height: 90px;
     }
-    .logo {
+    .logo1 {
         position: relative;
         left: 125px;
     }
