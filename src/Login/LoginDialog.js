@@ -81,7 +81,7 @@ return(
       </div>
     </Grid>   
     
-    <img src="line.png" alt="line"/>
+    <img className="image" src="line.png" alt="line"/>
 
  {/*.................................Teacher side on dialog box...................................*/}         
     <Grid item={true} classes={{item: styles.griditem}} md={5}>

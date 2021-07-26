@@ -104,19 +104,19 @@ export default function AppDrawer(props) {
 
   return (
     <Router>
-      <div style={{ display: "flex" }}>
+      <div>
         <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
           <Toolbar>
-            <Button onClick={() => alert("Welcome to LEVEL UP WORKS!")}>
+            <div>
               <img src="./photos/logo.png" alt="level up works logo" />
-            </Button>
-            <div className="flag" style={{ position: "absolute", right: "2%" }}>
-              <Button onClick={() => alert("Clicked NZ Flag!")}>
+            </div>
+            <div className="flag">
+              <div>
                 <img src="./photos/nzFlag.png" alt="level up works logo" />
-              </Button>
-              <Button onClick={() => alert("Clicked Maori Flag!")}>
+              </div>
+              <div>
                 <img src="./photos/maoriFlag.png" alt="level up works logo" />
-              </Button>
+                </div>
             </div>
           </Toolbar>
         </AppBar>

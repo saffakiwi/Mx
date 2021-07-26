@@ -5,12 +5,24 @@ import LearnM from '../homepageIMG/bannerIMGs/LearnM.png';
 import signUp from '../homepageIMG/bannerIMGs/signUp.png';
 import babyBanner from '../homepageIMG/bannerIMGs/babyBanner.png';
 import "../componentsCSS/banner.css";
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+    root: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+    
+    },
+})
 
 export default function Banner() {
+
+    const styles = useStyles();
+
     return (
-        <div>
-            <Container maxWidth="xl">
+        <div className="maindiv">
+            <Container class={{root: styles.root}} maxWidth="xl">
                 <div className="banner">
          <img className="babyImage" src={babyBanner} alt="this is baby" />
                     <div className="text">

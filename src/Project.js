@@ -10,7 +10,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import { useState, useEffect, useCallback } from 'react';
 import './projects.css';
 import axios from 'axios';
-import AppDrawer from './Drawer.js';
+import AppDrawer from './componentssp/appDrawer.js';
 import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
@@ -141,21 +141,21 @@ const [help, setHelp] = useState([])
 const [users, setUsers] = useState([])
 
 useEffect(() => {
-  axios.get("http://localhost:4000/progress_history")
+  axios.get("http://localhost:4001/progress_history")
     .then(response => {
       setProject(response.data)
   })
 },[]) 
 
 useEffect(() => {
-  axios.get("http://localhost:4000/help_requests")
+  axios.get("http://localhost:4001/help_requests")
     .then(response => {
       setHelp(response.data)
     })
   },[]) 
 
 useEffect(() => {
-  axios.get("http://localhost:4000/users/")
+  axios.get("http://localhost:4001/users/")
     .then(response => {
       setUsers(response.data)
     })

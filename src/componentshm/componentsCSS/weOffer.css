@@ -1,90 +1,97 @@
 .weOffer {
-    display: flex;
-    flex-wrap: wrap;
-padding: 3%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 3%;
+  width: 100%;
 }
 
 .left {
-    flex: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.right {
+  display: flex;
+  width: 50%;
 }
 
 .weOfferText {
-    height: 220px;
-    width: 600px;
-    position: relative;
-    left: 170px;
-    top: 60px;
+  height: 220px;
+  width: 600px;
+  position: relative;
+  left: 170px;
+  top: 60px;
 }
 
 .weOfferText p {
-    color:#767676 ;
-    font-size: 19px;
-    font-family: Open Sans;
-    padding-right: 20%;
+  color: #767676;
+  font-size: 19px;
+  font-family: Open Sans;
+  padding-right: 20%;
 }
 .weOfferText h2 {
-    color:#6C6C6C ;
-    font-size: 40px;
+  color: #6c6c6c;
+  font-size: 40px;
 }
-.weOfferText h3
-{
-    color: #6C6C6C  ;
-    font-size: 30px;
+.weOfferText h3 {
+  color: #6c6c6c;
+  font-size: 30px;
 }
-
 
 .weOfferButtons {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .weOfferCard {
-    position: relative;
-    margin-top:15%;
-    left:18%;
+  position: relative;
+  margin-top: 15%;
+  left: 18%;
 }
 .weOfferCard p {
-    position: absolute;
-    top: 100px;
-    left: 25%;
-    font-size: 12px;
-    color: #ffffff;
-    text-align: center;
-    padding-right: 33px;
-    font-family: Open Sans;
-    font-weight: 700;
+  position: absolute;
+  top: 100px;
+  left: 25%;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+  padding-right: 33px;
+  font-family: Open Sans;
+  font-weight: 700;
 }
 .backCard {
-    position: relative;
-    top: 20;
-    
-    max-width: 150px;
-    max-height: 150px;
+  position: relative;
+  top: 20;
+
+  max-width: 150px;
+  max-height: 150px;
 }
 .overlay {
-    position: absolute;
-    top: 15px;
-    left: 33px;
-    max-width: 80px;
-    max-height: 80px;
+  position: absolute;
+  top: 15px;
+  left: 33px;
+  max-width: 80px;
+  max-height: 80px;
 }
 .weOfferPic {
-    flex:50%;
-    display:flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center; 
+  flex: 50%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .radioButtons {
-    width: 100px;
-      margin-left: 45%;
-    display: flex;
-    justify-content: space-between;
+  width: 100px;
+  margin-left: 45%;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
-    .weOffer {
-        flex-direction: column;
-    }
+  .weOffer {
+    flex-direction: column;
+  }
 }

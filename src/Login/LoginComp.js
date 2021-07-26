@@ -4,7 +4,7 @@ import LoginButton from './LoginButton.js';
 import './Dialog.css';
 import axios from 'axios';
 import {useState} from 'react';
-import AppDrawer from '../componentssp/appDrawer.js';
+import Projects from '..//Project.js';
 import {BrowserRouter as Router ,Switch,Route,Link} from 'react-router-dom'
 
 function LoginForm() {
@@ -29,7 +29,7 @@ const handleLogin = () => {
   
 return(
   <>
-  {/* // <Router> */}
+  <Router>
   <form className="form">
     <input className="inputbox" 
       value={email} 
@@ -42,18 +42,18 @@ return(
       type="password" label="Password" 
       onChange={(e) => setPassword(e.target.value)} 
       placeholder="  Password"/><br/>
-    {/* <Link to="/">   */}
+    <Link to="src/Project.js">
      <Button onClick={handleLogin} >
       <LoginButton />
      </Button>
-    {/* </Link>   */}
+    </Link>
   </form>
-  {/* <Switch>
-    <Route exact path="/">
-    <AppDrawer/>
+  <Switch>
+    <Route exact path="/projects">
+    <Projects/>
     </Route>
   </Switch>
-  </Router> */}
+  </Router>
   </>
 )}
 
