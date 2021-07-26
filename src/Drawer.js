@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core"
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
-
+import 'project.css';
 const styles = makeStyles((theme) => ({
   drawerPaper: {
     width: "inherit",
@@ -115,18 +115,18 @@ const toggleDrawer = (open) => {
 
   return (
     
-    <div style={{ display: "flex" }}>
+    <div>
       <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
         <Toolbar>
           <Button onClick={() => alert("Welcome to LEVEL UP WORKS!")}>
-            <img src="./LevelupLogo.png" alt="level up works logo" />
+           
           </Button>
-          <div className="flag" style={{ position: "absolute", right: "2%" }}>
+          <div >
             <Button onClick={() => alert("Clicked NZ Flag!")}>
-              <img src="./NZflag.png" alt="level up works logo" />
+            
             </Button>
             <Button onClick={() => alert("Clicked Maori Flag!")}>
-              <img src="./Maoriflag.png" alt="level up works logo" />
+            
             </Button>
           </div>
         </Toolbar>
@@ -141,8 +141,8 @@ const toggleDrawer = (open) => {
       >
       <List>
 
-        <div>
-          {teacher.map(users => ( 
+        <div> 
+        {teacher.map(users => ( 
             <div>    
               <Avatar src={users.profile_pic} size="large" className={classes.avatarnav} alt="teacher" />
             </div>

@@ -27,6 +27,11 @@ const useStyles = makeStyles({
       overflowX: "hidden",
       maxWidth: "700px",
     },
+    header: {
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+    }
   });
 
 export default function Header() {
@@ -48,7 +53,7 @@ export default function Header() {
 
     return (
         <div>
-            <Container maxWidth="xl">
+            <Container class={{root: styles.header}} maxWidth="xl">
                 <div className="header">
                     <div className="logo">
                         <img className="logoPic" src={logoWorks} alt="level up logo" /> </div>
@@ -69,7 +74,7 @@ export default function Header() {
 
                     <div className="loginButtons">
                     <button onClick={handleClickOpen}>
-                    <a className="register" href="#">REGISTER|LOGIN </a>
+                    <p>REGISTER|LOGIN </p>
                     </button>
                     <Dialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
                         <AutoDialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>

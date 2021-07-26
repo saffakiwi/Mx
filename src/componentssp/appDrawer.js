@@ -15,6 +15,7 @@ import {
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import TabProgressTracker from "./tabProgressTracker"
 import TabStudentProfiles from "./tabStudentProfiles"
+import Projects from "../Project"
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -104,19 +105,19 @@ export default function AppDrawer(props) {
 
   return (
     <Router>
-      <div style={{ display: "flex" }}>
+      <div>
         <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
           <Toolbar>
-            <Button onClick={() => alert("Welcome to LEVEL UP WORKS!")}>
+            <div>
               <img src="./photos/logo.png" alt="level up works logo" />
-            </Button>
-            <div className="flag" style={{ position: "absolute", right: "2%" }}>
-              <Button onClick={() => alert("Clicked NZ Flag!")}>
+            </div>
+            <div className="flag">
+              <div>
                 <img src="./photos/nzFlag.png" alt="level up works logo" />
-              </Button>
-              <Button onClick={() => alert("Clicked Maori Flag!")}>
+              </div>
+              <div>
                 <img src="./photos/maoriFlag.png" alt="level up works logo" />
-              </Button>
+                </div>
             </div>
           </Toolbar>
         </AppBar>
@@ -157,7 +158,7 @@ export default function AppDrawer(props) {
               </ListItem>
             </Link>
 
-            <Link to="/projectSubmissions" className={classes.link}>
+            <Link to="/projects" className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
                   <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
@@ -212,7 +213,7 @@ export default function AppDrawer(props) {
         </Drawer>
         {/* -------------- Routes ------------------- */}
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/progresstracker">
             <main className={classes.content}>
               <div className={classes.toolbar} />
 
@@ -235,10 +236,11 @@ export default function AppDrawer(props) {
             </main>
           </Route>
 
-          <Route exact path="/projectSubmissions">
+          <Route exact path="/projects">
             <main className={classes.content}>
-              <div className={classes.toolbar} />
-              <h2>Project Submissions</h2>
+              {/* <div className={classes.toolbar} /> */}
+              {/* <h2>Project Submissions</h2> */}
+              <Projects />
             </main>
           </Route>
 

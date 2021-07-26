@@ -11,7 +11,16 @@ import Screen3 from "../homepageIMG/weOfferIMGs/Projects 03.png";
 import augmentedReality from "../homepageIMG/weOfferIMGs/augmentedReality.png";
 import Screen4 from "../homepageIMG/weOfferIMGs/Projects 04.png";
 import { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+    root: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+    
+    },
+})
 
 export default function WeOffer() {
     const [changeScreen, setChangeScreen] = useState('b1')
@@ -34,9 +43,10 @@ export default function WeOffer() {
         console.log(1)
     }
 
+    const styles = useStyles();
 
     return (
-        <Container maxWidth="xl">
+        <Container classes={{root: styles.root}} maxWidth="xl">
             <div className="weOffer" value={changeScreen}>
 
                 <div className="left">
@@ -78,6 +88,7 @@ export default function WeOffer() {
                     </div>
                 </div> <br />
                
+               <div className="right">
                 <div className="weOfferPic">
                     <p2>{image}</p2>
                     <div className="radioButtons">
@@ -87,6 +98,7 @@ export default function WeOffer() {
                         <input type="radio" name="radio" onClick={handleChange} value='b4' />
                     </div>
                     <br />
+                </div>
                 </div>
 
             </div>
