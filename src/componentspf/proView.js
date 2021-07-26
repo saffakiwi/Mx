@@ -7,9 +7,10 @@ import Project from './Bk2Proj.png';
 import Dash from './Bk2Db.png';
 import EditBtn from './EditBtn.png';
 import ChgPhoBtn from './ChgPhoBtn.png';
+import TabProgressTracker from '../componentssp/tabProgressTracker.js';
 
 const useStyles = makeStyles({
-    root: {
+    roota: {
         backgroundColor: '#EEEEEE',
         flexGrow: "1",
         flexDirection: "column",
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
         marginBottom: "40px",
         textAlign: "justify",
     },
-    left: {
+    left1: {
         display: "flex",
         padding: '7px',
         display: "block",
@@ -53,29 +54,30 @@ const useStyles = makeStyles({
         padding: '30px',
         textAlign: 'center',
     },
-    list: {
+    list1: {
         marginLeft: "13px",
         marginBottom: "50px",
-           lineSpacing: "30px",
+        lineSpacing: "30px",
         marginRight: '0',
-        lineHeight:'2.5',
+        lineHeight: '2.5',
 
     },
-    a: {
+    a1: {
         fontFamily: "Nunito",
         fontSize: "20px",
         // fontWeight: "lighter",
         color: "#a5a5a5",
         padding: "20px",
-     
+
     },
-    b: {
+    b1: {
         // fontFamily: "Nunito",
         fontSize: "20px",
         color: "#707070",
         padding: "12px",
         marginRight: "0",
-    }
+    },
+  
 });
 
 
@@ -95,31 +97,49 @@ export default function ProView({ match }) {
             .catch(err => console.log(err))
     }, [])
 
+    // const getHumanDate = (dateToChange) => {
+    //     const date = new Date(dateToChange)
+    //     const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+    //     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    //       return (
+    //         <div>
+    //           <h3>{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h3>
+    //           <h3>{date.getHours()}:{date.getMinutes()}</h3>
+    //         </div>
+    //       )
+    //   }
+
     return (
         <>
             <Header />
             {userInfo.length > 0 && (
                 <Box>
-                    <Container maxWidth="lg" className={classes.root}>
+                    <Container maxWidth="lg" className={classes.roota}>
                         <br /><br /><br />
+
                         <Grid container spacing={1} display="flex" direction="row" >
                             <Grid item xs={5}>
                                 <Card variant="outlined" className={classes.cardl} >
-                                    <CardContent className={classes.left} key={userInfo.user_id}>
-                                        <img src={userInfo[0].profile_pic} alt="profile" />
+
+                                    <CardContent className={classes.left1}  >
+
+                                        <img src={userInfo[0].profile_pics} alt="profile" />
                                         <br />
                                         <p><img src={EditBtn} style={{ height: "30px", width: "120px" }} /></p>
                                         <p><img src={ChgPhoBtn} style={{ height: "30px", width: "120px" }} /></p>
                                         {/* <p><img src={SettinBtn} style={{ height: "30px", width: "120px" }} /></p> */}
                                     </CardContent>
+
                                 </Card>
                             </Grid>
                             <Grid item sm={7} >
+
                                 <Card variant="outlined" className={classes.cardr} >
-                                    <CardContent className={classes.left} key={userInfo.user_id}>
-                                        <h1 className={classes.h1}> {userInfo[0].first_name} {userInfo[0].last_name}</h1>
-                                        <Grid className={classes.list} container spacing={6} >
-                                            <Grid item xs={5} className={classes.a}>
+                                    <h1 className={classes.h1}> {userInfo[0].first_name} {userInfo[0].last_name}</h1>
+                                    <CardContent className={classes.left}>
+
+                                        <Grid container spacing={6} className={classes.list1} >
+                                            <Grid item xs={5} className={classes.a1}>
                                                 <p>School</p>
                                                 <p>Teacher</p>
                                                 <p>Course</p>
@@ -127,22 +147,26 @@ export default function ProView({ match }) {
                                                 <p>Contact No.</p>
                                                 <p>Email Address</p>
                                             </Grid>
-                                            <Grid item sm={6} className={classes.b}>
-                                                <p>{userInfo[0].school}</p>
-                                                <p>{userInfo[0].teacher_name}</p>
-                                                <p>{userInfo[0].course}</p>
-                                                <p>{userInfo[0].date_of_birth}</p>
-                                                <p>{userInfo[0].contact_number}</p>
-                                                <p>{userInfo[0].email}</p>
+                                            <Grid item sm={6} className={classes.b1}>
+                                                <div className={classes.p} >
+                                                    <p >{userInfo[0].school}</p>
+                                                    <p>{userInfo[0].teacher_name}</p>
+                                                    <p>{userInfo[0].course}</p>
+                                                    <p>{userInfo[0].date_of_birth}</p>
+                                                    <p>{userInfo[0].contact_number}</p>
+                                                    <p>{userInfo[0].email}</p>
+
+                                                </div>
                                             </Grid>
                                         </Grid>
                                     </CardContent>
+
                                 </Card>
                             </Grid>
                         </Grid>
                         <div className={classes.btn} >
-                            <Link to='/'><Button><img src={Project} style={{ height: "35px", width: "150px" }} /></Button></Link>
-                            <Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button>
+                            <Button><img src={Project} style={{ height: "35px", width: "150px" }} /></Button>
+                            <a href='../progresstracker'><Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button></a>
                         </div>
                     </Container>
                 </Box>

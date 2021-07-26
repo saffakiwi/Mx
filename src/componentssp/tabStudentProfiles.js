@@ -4,6 +4,7 @@ import { Card, Grid } from "@material-ui/core"
 import { useHistory } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import ProView from "../componentspf/proView"
 
 
 export default function TabStudentProfiles(props) {
@@ -21,7 +22,7 @@ export default function TabStudentProfiles(props) {
             return (
               <Grid>
                 <Card className="studentInnerDiv" key={user.user_id}>
-                  <img src={user.profile_pic} onClick={() => handleClick(user.user_id)} alt="student info" className="studentPic" />
+                  <a herf='/users/:user_id'><img src={user.profile_pic} onClick={() => handleClick(user.user_id)} alt="student info" className="studentPic" /></a>
                   <h5 className="studentName">
                     {user.first_name.toUpperCase() + " "}
                     {user.last_name.toUpperCase()}

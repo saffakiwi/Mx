@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10%",
   },
   p1:{
-    marginTop: "5%",
+    marginTop: "10%",
   }
 }));
 
@@ -33,8 +33,9 @@ export default function Footer() {
   return (
 
     <div>
+      <Container maxWidth= "xl">
       <Box>
-        <Container maxWidth="xl" container className={classes.root} >
+        <div className={classes.root} >
           <Grid spacing={2} className={classes.body}>
             <Grid item xs={1}></Grid>
             <Grid item xs={2}>
@@ -82,8 +83,9 @@ export default function Footer() {
               <p>(021) 688 185</p></div></Grid>
               <Grid item xs={1}></Grid>
           </Grid>
-        </Container>
+        </div>
       </Box>
+      </Container>
     </div>
   );
 }

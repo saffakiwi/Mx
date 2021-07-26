@@ -1,12 +1,14 @@
-.header {
+.header5 {
     display: flex;
     flex-wrap: wrap;
     height: 55px;
     background: #43C0F6;
+
+    position: relative;
 }
 
-.logo {
-    position: relative;
+.logo1 {
+    position: absolute;
     left: 200px;
     top: 0px
 }
@@ -22,6 +24,9 @@
     display: flex;
     justify-content: space-between;
     font-weight: 740;
+    position: absolute;
+    justify-items: center;
+    left: 250px;
 }
 
 .middleButtons a {
@@ -29,24 +34,25 @@
     justify-content: space-between;
     text-decoration: none;
     position: relative;
-    left: 490px;
+    left: 100%;
     top: 26px;
 }
 
 
 .avatar {
-    position: relative;
-    left: 690px;
+    position: absolute;
+    right: 310px; 
     top:26px;
 }
-.flags {
+.flags1 {
     display: flex;
     cursor: pointer;
-    position: relative;
-    left: 850px;
-    top: 5px
+    position: absolute;
+    margin-top: 0.5%;
+    right: 170px;
+    
 }
-.flags img {
+.flags1 img {
     width: 20PX;
     height: 10px;
     margin-left: 4px;
@@ -56,58 +62,15 @@
     color: whitesmoke;
     font-size: 9px;
     padding-right: 10px;
-    opacity: 80%;
+    opacity: 85%;
 }
-
-
 .loginButtons {
-    display: flex;
-    justify-content: space-evenly;
-
-    height: 25px;
-    width: 170px;
-
-    position: relative;
-    left: 680px;
-    top: 26px;
+    position: absolute;
+    right: 160px;
+    top: 28px;
 }
-
 .loginButtons p {
     color: whitesmoke;
-}
-
-.register{
-    color: whitesmoke;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
-    padding-top: 3px;
-}
-
-.login {
-    color: whitesmoke;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 12px;
-    padding-top: 3px;
-}
-
-
-@media screen and (max-width:xl) and (orientation: portrait) {
-    .header {
-        height: 90px;
-    }
-    .logo {
-        position: relative;
-        left: 125px;
-    }
-
-    .middleButtons {
-        display: flex;
-        position: relative;
-        right: 550px;
-        top:40px;
-        }
+    font-size: 14px;
+    font-weight: 680;
 }

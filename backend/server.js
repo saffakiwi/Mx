@@ -42,7 +42,7 @@ app.post('/getUser', function (req, res) {
       res.send(result)
       console.log(result)
     })
-});
+})
 
 app.post('/login', (req, res) => {
   db.query("SELECT * FROM users WHERE email = ? AND password = ?", [req.body.email, req.body.password], function(err, result) {
