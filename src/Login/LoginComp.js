@@ -14,7 +14,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
 const handleLogin = () => {
-  axios.post('http://localhost:4001/login', {
+  axios.post('http://localhost:4000/login', {
     "email": email,
     "password": password,
   })

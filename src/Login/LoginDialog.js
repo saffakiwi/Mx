@@ -68,7 +68,7 @@ return(
 
 {/*.................................Student side on dialog box...................................*/}    
     <Grid item={true} classes={{item: styles.griditem}} md={5}>
-      <div className="left">
+      <div className="leftbox">
         <div className="student">
           <Students />
         </div>
@@ -85,7 +85,7 @@ return(
 
  {/*.................................Teacher side on dialog box...................................*/}         
     <Grid item={true} classes={{item: styles.griditem}} md={5}>
-    <div className="right">
+    <div className="rightbox">
         <button className="close" type="button" onClick={() => handleClose(open)} >
           <Cross className="exitbutton"/>
           <CrossOne />

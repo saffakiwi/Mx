@@ -23,10 +23,11 @@ root: {
 background: {
   display: "flex",
   flexDirection: "column",
-  width: "100%",
+  width: "98%",
   backgroundColor: "#b2e4fa",
   height: "800px",
-  marginTop: "70px",    
+  marginTop: "65px",   
+  marginLeft: "70px", 
 },
 box: {
   display: "flex",
@@ -116,6 +117,7 @@ navlinks: {
 navicons: {
     color: "white",
 },
+
 });
 
 const useStyling = makeStyles((theme) => ({
@@ -167,8 +169,8 @@ const getHumanDate = (dateToChange) => {
   const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     return (
       <div>
-        <h3>{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h3>
-        <h3>{date.getHours()}:{date.getMinutes()}</h3>
+        <h2 id="datetime">{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h2>
+        <h2 id="datetime">{date.getHours()}:{date.getMinutes()}</h2>
       </div>
     )
 }
@@ -198,22 +200,22 @@ return (
           size="small" variant="contained">More Projects</Button>
       </div>
 
-<Container classes={{root: styles.box}} maxWidth="xl">
+<Container classes={{root: styles.box }} maxWidth="xl">
 
 {/*.......................................................Header and buttons.......................................................*/} 
     <div id="headings">
-        <h1>PROJECT SUBMISSIONS</h1>
+        <h1 id="headingps">PROJECT SUBMISSIONS</h1>
       <div id="downloads">
         <Button classes={{root: styles.buttongroup}}>
           <GetAppIcon/>
-          <h3>DOWNLOAD FILES</h3>
+          <h3 id="zoomimage">DOWNLOAD FILES</h3>
         </Button>
       </div>
 
       <div id="complete">
         <Button classes={{root: styles.buttongroup}}>
           <CheckIcon/>
-          <h3>MARK AS COMPLETE PROJECT</h3>
+          <h3 id="zoomimage">MARK AS COMPLETE PROJECT</h3>
           </Button>
       </div>
     </div>
@@ -234,7 +236,7 @@ return (
             </div>
     
             <div id="subname">
-              <div className="subcontent"><h2>{users.first_name.toUpperCase()} submitted their project</h2></div>
+              <div className="subcontent"><h2 id="cardtext">{users.first_name.toUpperCase()} submitted their project</h2></div>
       
                 <ControlledZoom className="imagezoom" isZoomed={isZoomed} onZoomChange={handleZoomChange}>
                 <img id="photo" 
@@ -247,7 +249,7 @@ return (
               
               <div id="zoom">            
                 <ZoomInIcon />
-                <h3>ENLARGE PHOTO</h3>
+                <h3 id="zoomimage">ENLARGE PHOTO</h3>
               </div>
               
             </div>
@@ -277,7 +279,7 @@ return (
             </div>
             
             <div id="helpname"> 
-              <div><h2>{users.first_name.toUpperCase()} wants to show you their project</h2></div>
+              <div><h2 id="cardtext">{users.first_name.toUpperCase()} wants to show you their project</h2></div>
             </div>
                 
             <div id="helptime">

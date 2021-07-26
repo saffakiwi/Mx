@@ -16,6 +16,7 @@ import Avatar from '@material-ui/core/Avatar';
 import 'project.css';
 const styles = makeStyles((theme) => ({
   drawerPaper: {
+    display: "flex",
     width: "inherit",
     marginTop: "70px 0",
     paddingTop: "80px",
