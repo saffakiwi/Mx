@@ -76,8 +76,8 @@ export default function Header() {
                     <Button style={{ height: "20px"}}  onClick={handleClickOpen}>
                     <p>REGISTER | LOGIN </p>
                     </Button>
-                    <Dialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
-                        <AutoDialog classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
+                    <Dialog  classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
+                        <AutoDialog handleClose={setOpen} classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
                     </Dialog>
                         
                     </div>

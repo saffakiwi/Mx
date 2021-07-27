@@ -42,7 +42,7 @@ return(
       type="password" label="Password" 
       onChange={(e) => setPassword(e.target.value)} 
       placeholder="  Password"/><br/>
-     <a href='./progresstracker'><Button onClick={handleLogin} >
+     <a className="student" href='./progresstracker'><Button onClick={handleLogin} >
       <LoginButton />
      </Button></a>
   </form>

@@ -52,13 +52,11 @@ form: {
 },
 });
  
-function AutoDialog() {
+function AutoDialog({handleClose}) {
 
 //parameters for dialog to close
-const [open, setOpen] = useState();
-const handleClose = () => {
-  setOpen(open);
-};
+
+
 
 //use of makeStyles
 const styles = useStyles();
@@ -86,7 +84,7 @@ return(
  {/*.................................Teacher side on dialog box...................................*/}         
     <Grid item={true} classes={{item: styles.griditem}} md={5}>
     <div className="rightbox">
-        <button className="close" type="button" onClick={() => handleClose(open)} >
+        <button className="close" type="button" onClick={() => handleClose(false)} >
           <Cross className="exitbutton"/>
           <CrossOne />
         </button>
