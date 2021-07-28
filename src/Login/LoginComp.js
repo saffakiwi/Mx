@@ -5,7 +5,7 @@ import "./Dialog.css"
 import axios from "axios"
 import { useState } from "react"
 import Projects from "..//Project.js"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { useHistory, Route } from "react-router-dom"
 
 function LoginForm() {
   const [email, setEmail] = useState("")
@@ -23,6 +23,26 @@ function LoginForm() {
       })
       .catch((err) => {
         console.log(err)
+      })
+  }
+
+  let history = useHistory()
+
+  const handleLogin = (id) => {
+    axios
+      .post("http://localhost:4001/login", {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        history.push("/progresstracker/users" + id)
+        console.log(response.status)
+        console.log("Login Successful")
+        alert("Successfully logged in")
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("Incorrect email or password")
       })
   }
 
@@ -46,11 +66,9 @@ function LoginForm() {
         placeholder="  Password"
       />
       <br />
-      <a href="./dashboard">
-        <Button onClick={handleLogin}>
-          <LoginButton />
-        </Button>
-      </a>
+      <Button onClick={handleLogin}>
+        <LoginButton />
+      </Button>
     </form>
   )
 }
