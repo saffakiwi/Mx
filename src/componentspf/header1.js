@@ -58,10 +58,11 @@ const useStyles = makeStyles({
 
 });
 
-export default function Header(props) {
+export default function Header(users) {
   const classes = useStyles();
   const [userInfo, setUserInfo] = useState([])
   const [profile_pic, setProfile_pic]= useState([])
+  const [users, setUsers] = useState([])
 
   //   useEffect(() => {
   //     axios.post("http://localhost:4001/getUser", {

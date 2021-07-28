@@ -214,7 +214,7 @@ export default function AppDrawer(props) {
           </div>
         </Drawer>
         {/* -------------- Routes ------------------- */}
-        <Switch>
+        {/* <Switch>
           <Route exact path="/progresstracker">
             <main className={classes.content}>
               <div className={classes.toolbar} />
@@ -239,10 +239,10 @@ export default function AppDrawer(props) {
           </Route>
 
           <Route exact path="/projects">
-            <main className={classes.content}>
+            <main className={classes.content}> */}
               {/* <div className={classes.toolbar} /> */}
               {/* <h2>Project Submissions</h2> */}
-              <Projects />
+              {/* <Projects />
             </main>
           </Route>
 
@@ -252,7 +252,7 @@ export default function AppDrawer(props) {
               <h2>Project Library</h2>
             </main>
           </Route>
-        </Switch>
+        </Switch> */}
       </div>
     </Router>
   )
