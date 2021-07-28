@@ -104,9 +104,11 @@ export default function AppDrawer(props) {
       setBottomDirection("column")
     }
   }
-
+ 
   return (
     <Router>
+       {props.user.map((user) => {
+         return (
       <div>
         <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
           <Toolbar>
@@ -123,7 +125,7 @@ export default function AppDrawer(props) {
             </div>
           </Toolbar>
         </AppBar>
-
+       
         <Drawer
           style={{ width: drawerWidth }}
           classes={{ paper: classes.drawerPaper }}
@@ -132,7 +134,7 @@ export default function AppDrawer(props) {
           open={drawerState}
         >
           <List>
-            <img src="./photos/userBig.png" style={{ visibility: userImage }} />
+            <img src={user.profile_pic} style={{ visibility: userImage }} />
             <Link to="/" className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
@@ -242,7 +244,7 @@ export default function AppDrawer(props) {
             <main className={classes.content}>
               {/* <div className={classes.toolbar} /> */}
               {/* <h2>Project Submissions</h2> */}
-              <Projects />
+              <Projects user={props.user}/>
             </main>
           </Route>
 
@@ -254,6 +256,9 @@ export default function AppDrawer(props) {
           </Route>
         </Switch>
       </div>
+        )
+      })};
     </Router>
+  
   )
 }

@@ -4,12 +4,13 @@
   align-items: "center";
   justify-content: center;
 }
-
+/*-----general styling for most of the divs to flex----*/
 .student {
   display: flex;
   justify-content: center;
 }
 
+/*----styling for the login/sign up buttons rendering the form---*/
 .lsbuttons {
   display: flex;
   flex-direction: column;
@@ -23,7 +24,6 @@
   margin-bottom: 10px;
   width: 100%;
 }
-
 .loginLink {
   display: flex;
   flex-direction: row;
@@ -36,12 +36,11 @@
   justify-content: center;
   margin: auto;
 }
-
 .loginLink:hover {
   text-decoration: underline #43c0f6;
   text-decoration-thickness: 3px;
 }
-.loginLink:active {
+.loginActive {
   text-decoration: underline #43c0f6;
   text-decoration-thickness: 3px;
 }
@@ -61,20 +60,29 @@
   text-decoration: underline #f91c85;
   text-decoration-thickness: 3px;
 }
-.signupLink:active {
+.signupActive {
   text-decoration: underline #f91c85;
   text-decoration-thickness: 3px;
+}
+
+/*----left hand student side of dialog-----*/
+.leftbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10px;
+}
+
+/*---------right hand side of dialog-------*/
+.rightbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .photo {
   height: 250px;
   width: 250px;
   justify-content: center;
-}
-
-.rightbox {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 .close {
   display: flex;
@@ -84,17 +92,11 @@
   background-color: white;
   margin-top: 15px;
 }
-
 .exit {
   margin-right: -30px;
 }
-.leftbox {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: 10px;
-}
 
+/*---------styling for the form component------*/
 form {
   display: flex;
   flex-direction: column;

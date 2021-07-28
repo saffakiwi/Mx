@@ -12,7 +12,7 @@ import axios from "axios"
 function App() {
   const [users, setUsers] = useState([])
   const [userInfo, setUserInfo] = useState([])
-
+  
   useEffect(() => {
     axios.get("http://localhost:4001/users")
     .then((response) => {
@@ -28,6 +28,9 @@ function App() {
         <Route path='/progresstracker'>
           <AppDrawer user={users} /> 
             </Route> 
+            <Route exact path="/projects">
+          <Projects />
+        </Route>
             <Route exact path="/">
           <Homepage />
         </Route>

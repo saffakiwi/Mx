@@ -16,18 +16,16 @@ return (
         <div className="selectbuttons">
 
  {/*.................................Login Form and button rendering...................................*/}
-            <a className= {formSelection === "LoginForm" ? "loginLink loginActive" : "loginLink"}
+            <div className= {formSelection === (1) ? "loginLink loginActive" : "loginLink"} 
             value="login button"
-            href='#'
             onClick={() => handleChange(1)}>
-            LOG IN </a>
+            LOG IN </div>
 
 {/*.................................Signup Form and button rendering...................................*/}
-            <a className= {formSelection === "SignupForm" ? "signupLink signupActive" : "signupLink"}
+            <div className= {formSelection === (0) ? "signupLink signupActive" : "signupLink"}
             value="signup button"
-            href='#'
             onClick={() => handleChange(0)}>
-            SIGN UP </a>
+            SIGN UP </div>
         </div>
         
 {/*.................................Main form conditional rendering...................................*/}

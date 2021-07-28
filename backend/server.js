@@ -45,7 +45,10 @@ app.post('/getUser', function (req, res) {
 })
 
 app.post('/login', (req, res) => {
-  db.query("SELECT * FROM users WHERE email = ? AND password = ?", [req.body.email, req.body.password], function(err, result) {
+  const email = req.body.email
+  const password = req.body.password
+
+  db.query("SELECT * FROM users WHERE email = ? AND password = ?", [email, password], function(err, result) {
   if (err) {
   console.log(err)
   } else {
