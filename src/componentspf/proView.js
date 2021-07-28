@@ -44,6 +44,7 @@ const useStyles = makeStyles({
         padding: '7px',
         display: "block",
         margin: "auto",
+        justifyContent: 'centre',
     },
 
     h1: {
@@ -77,13 +78,14 @@ const useStyles = makeStyles({
         padding: "12px",
         marginRight: "0",
     },
-  
+
 });
 
 
 export default function ProView({ match }) {
     const [userInfo, setUserInfo] = useState([])
     const classes = useStyles();
+    const [profile_pic, setProfile_pic] = useState([])
 
 
     useEffect(() => {
@@ -97,22 +99,26 @@ export default function ProView({ match }) {
             .catch(err => console.log(err))
     }, [])
 
-    // const getHumanDate = (dateToChange) => {
-    //     const date = new Date(dateToChange)
-    //     const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
-    //     const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    //       return (
-    //         <div>
-    //           <h3>{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h3>
-    //           <h3>{date.getHours()}:{date.getMinutes()}</h3>
-    //         </div>
-    //       )
-    //   }
+    const getHumanDate = (dateToChange) => {
+        const date = new Date(dateToChange)
+        const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        return (
+        <div>
+        <h2 id="datetime">{days[date.getDay()].toUpperCase()} {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</h2>
+        <h2 id="datetime">{date.getHours()}:{date.getMinutes()}</h2>
+        </div>
+        )
+       }
+
 
     return (
         <>
-            <Header />
-            {userInfo.length > 0 && (
+{userInfo.length > 0 && (
+            <div>
+                
+            <Header profile_pic={profile_pic}/>
+         
                 <Box>
                     <Container maxWidth="lg" className={classes.roota}>
                         <br /><br /><br />
@@ -123,7 +129,7 @@ export default function ProView({ match }) {
 
                                     <CardContent className={classes.left1}  >
 
-                                        <img src={userInfo[0].profile_pics} alt="profile" />
+                                        <img src={"/" + userInfo[0].profile_pic} alt="profile" />
                                         <br />
                                         <p><img src={EditBtn} style={{ height: "30px", width: "120px" }} /></p>
                                         <p><img src={ChgPhoBtn} style={{ height: "30px", width: "120px" }} /></p>
@@ -170,8 +176,12 @@ export default function ProView({ match }) {
                         </div>
                     </Container>
                 </Box>
-            )}
+           
             <Footer />
+            
+            </div>
+  )}  
+
         </>
     );
 }
