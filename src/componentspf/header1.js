@@ -11,7 +11,7 @@ import { Container } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 
 
 const useStyles = makeStyles({
@@ -61,6 +61,7 @@ const useStyles = makeStyles({
 export default function Header(props) {
   const classes = useStyles();
   const [userInfo, setUserInfo] = useState([])
+  const [profile_pic, setProfile_pic]= useState([])
 
   //   useEffect(() => {
   //     axios.post("http://localhost:4001/getUser", {
@@ -89,13 +90,18 @@ export default function Header(props) {
           <IconButton style={{ height: "0px", width: "30px" }}><img src={Lang} style={{ height: "10px", width: "20px", opacity: "80%" }} /> </IconButton>
           <IconButton style={{ height: "0px", width: "1px" }}> <img src={Nz} style={{ height: "10px", width: "18px" }} /></IconButton>
           <IconButton style={{ height: "0px", width: "35px" }}><img src={Maori} style={{ height: "10px", width: "18px" }} /></IconButton>
-          </div>
+        </div>
+      
           <div>
-    
-          </div>
-       
+            <IconButton style={{ height: "20px", width: "3px" }} >
+              <img src={"/" + setProfile_pic.profile_pic}   style={{ height: "20px", width: "20px" }} />
+              </IconButton> 
+              </div>
+      
       </Container>
 
-    </div>
+    </div >
   )
 };
+
+// src={"/" + userInfo[0].profile_pic}alt="profile3"
