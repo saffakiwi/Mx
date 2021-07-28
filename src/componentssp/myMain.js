@@ -59,7 +59,7 @@ const styles = makeStyles((theme) => ({
   },
   tabLinksText: {
     color: "#FFF",
-    fontFamily: "Arial",
+    fontFamily: "OpenSans-Bold",
     fontSize: "",
   },
   bottomPush: {
@@ -107,7 +107,7 @@ export default function MyMain(props) {
       setBottomTop("250px")
       setBottomDirection("row")
       setCaret("./photos/openCaretLeft.png")
-      setCaretColor("#fff")
+      setCaretColor("#b2e4fa")
     } else {
       setDrawerState(false)
       setDrawerWidth("70px")
@@ -164,7 +164,7 @@ export default function MyMain(props) {
             <ListItemIcon>
               <img src="./photos/userGraduate.png" alt="sidenav icon" />
             </ListItemIcon>
-            <ListItemText>STUDENT PROFILES</ListItemText>
+            <ListItemText classes={{ primary: classes.tabLinksText }} primary="STUDENT PROFILES" />
           </ListItem>
           {/* </Link> */}
 
@@ -173,7 +173,7 @@ export default function MyMain(props) {
             <ListItemIcon>
               <img src="./photos/helpIcon.png" alt="sidenav icon" />
             </ListItemIcon>
-            <ListItemText>HELP REQUESTS</ListItemText>
+            <ListItemText classes={{ primary: classes.tabLinksText }} primary="HELP REQUESTS" />
           </ListItem>
           {/* </Link> */}
 
@@ -182,7 +182,10 @@ export default function MyMain(props) {
             <ListItemIcon>
               <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
             </ListItemIcon>
-            <ListItemText>PROJECT SUBMISSIONS</ListItemText>
+            <ListItemText
+              classes={{ primary: classes.tabLinksText }}
+              primary="PROJECT SUBMISSIONS"
+            />
           </ListItem>
           {/* </Link> */}
 
@@ -191,11 +194,18 @@ export default function MyMain(props) {
             <ListItemIcon>
               <img src="./photos/libraryLight.png" alt="sidenav icon" />
             </ListItemIcon>
-            <ListItemText>PROJECT LIBRARY</ListItemText>
+            <ListItemText classes={{ primary: classes.tabLinksText }} primary="PROJECT LIBRARY" />
           </ListItem>
           {/* </Link> */}
           {/* ------------------ CARET --------------------- */}
-          <button style={{ float: "right", border: "none", backgroundColor: { caretColor } }}>
+          <button
+            style={{
+              float: "right",
+              border: "none",
+              backgroundColor: caretColor,
+              padding: "0 5px",
+            }}
+          >
             <img src={caret} alt="caret " onClick={toggleDrawerState} />
           </button>
           {/*------------Bottom Navigation---------------- */}

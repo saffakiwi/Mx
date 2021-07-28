@@ -11,20 +11,20 @@ function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleLogin = () => {
-    axios
-      .post("http://localhost:4000/login", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response.status)
-        console.log("Login Successful")
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
+  // const handleLogin = () => {
+  //   axios
+  //     .post("http://localhost:4000/login", {
+  //       email: email,
+  //       password: password,
+  //     })
+  //     .then((response) => {
+  //       console.log(response.status)
+  //       console.log("Login Successful")
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
 
   let history = useHistory()
 
