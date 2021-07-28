@@ -4,19 +4,15 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import AppDrawer from './appDrawer.js';
 
-export default function TabProgressTracker(props) {
+export default function TabProgressTracker() {
+  const [users, setUsers] = useState([])
+  // const [userInfo, setUserInfo] = useState([])
 
-  // const [users, setUsers] = useState([])
-  // // const [userInfo, setUserInfo] = useState([])
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:4001/users")
-  //   .then((response) => {
-  //     setUsers(response.data)
-  //   })
-
-  // }, )
-
+  useEffect(() => {
+    axios.get("http://localhost:4001/users").then((response) => {
+      setUsers(response.data)
+    })
+  })
 
   return (
     <>
@@ -50,10 +46,17 @@ export default function TabProgressTracker(props) {
             </span>
           </div>
 
+<<<<<<< HEAD
           {console.log(props.user)}
           {/* div for students*/}
           {/*{props.user.map((user) => {*/}
             {/*return (*/}
+=======
+          {console.log(users)}
+          {/* div for students */}
+          {users.map((user) => {
+            return (
+>>>>>>> d260c3900504f872311af75ac4f6612f340b7793
               <div className="studentsDiv">
                 {/* div for name and projects completed */}
 
