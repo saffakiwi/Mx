@@ -137,12 +137,11 @@ function Projects() {
 //makeStyles state
 const styles = useStyles()
 const classes = useStyling();
-
 const [project, setProject] = useState([])
 const [help, setHelp] = useState([])
 const [users, setUsers] = useState([])
 const [done, setDone] = useState([1])
-const [newDone, setNewDone] = useState([])
+
 const [id, setId] = useState([])
 useEffect(() => {
   axios.get("http://localhost:4001/progress_history")
@@ -177,13 +176,22 @@ const getHumanDate = (dateToChange) => {
     )
 }
 
-const updateTask = (id) => {
-  axios.put("http://localhost4000/update", {done: newDone, id: id}).then(
-    (response) => {
-      console.log("updated")
+function updateTask() {
+
+  axios.put("http://localhost4000/update", {
+  done: done,
+  user_id: id
+})
+  .then(response => {
+    console.log(response.data)
+    console.log("updated")
     }
-  )
-}
+  )}
+  const [isChecked, setIsChecked] = useState(0)
+  const handleCheck = () => {
+  setIsChecked(isChecked)
+  console.log(isChecked)
+  }
   const [isZoomed, setIsZoomed] = useState(false)
   const handleImgLoad = () => {
     setIsZoomed(isZoomed)
@@ -235,8 +243,7 @@ return (
     {project.map(users => (
       <div id="content1">
         <div className="checkmain">
-          <input id="checkbox" type="checkbox"/>
-  
+          <input id="checkbox" type="checkbox" />
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>
@@ -279,10 +286,11 @@ return (
     {help.map(users => ( 
       <div id="content1">    
         <div className="checkmain">
-          <input id="checkbox" type="checkbox"
-          onChange={(event) => {
-            setNewDone(event.target.value);
-          }}/>
+          <input id="checkbox" type="checkbox" value={done}
+          onChange={() => {
+            handleCheck(!isChecked === "0")
+            setDone(isChecked === "1")}
+          }/>
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>

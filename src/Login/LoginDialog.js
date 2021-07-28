@@ -52,7 +52,7 @@ form: {
 },
 });
  
-function AutoDialog({handleClose}) {
+function AutoDialog({ handleClose }) {
 
 //parameters for dialog to close
 
