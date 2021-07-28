@@ -2,6 +2,7 @@ import "../tabProgressTracker.css"
 import NumberButtons from "./numberButtons"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import AppDrawer from './appDrawer.js';
 
 export default function TabProgressTracker(props) {
 
@@ -19,6 +20,7 @@ export default function TabProgressTracker(props) {
 
   return (
     <>
+    <AppDrawer/>
       <div className="mainDiv">
         {/* --------Div for three buttons at top-------------- */}
         <div className="topButtons">
@@ -49,16 +51,16 @@ export default function TabProgressTracker(props) {
           </div>
 
           {console.log(props.user)}
-          {/* div for students */}
-          {props.user.map((user) => {
-            return (
+          {/* div for students*/}
+          {/*{props.user.map((user) => {*/}
+            {/*return (*/}
               <div className="studentsDiv">
                 {/* div for name and projects completed */}
 
                 <div className="completedProjects">
                   <h4>
-                    {user.first_name.toUpperCase() + " "}
-                    {user.last_name.toUpperCase()}
+                    {/*{user.first_name.toUpperCase() + " "}
+                    {user.last_name.toUpperCase()}*/}
                   </h4>
                   <h6>0/15 Projects Completed</h6>
                 </div>
@@ -80,8 +82,8 @@ export default function TabProgressTracker(props) {
                 <NumberButtons num="14" />
                 <NumberButtons num="15" />
               </div>
-            )
-          })}
+            
+          {/*})}*/}
         </div>
       </div>
     </>

@@ -26,6 +26,7 @@ app.get("/users", function (req, res) {
   db.query(
     "SELECT user_id,first_name,last_name,profile_pic FROM users WHERE role='student'",
     function (err, result) {
+      console.log(result)
       res.send(result)
     })
 });
@@ -54,7 +55,7 @@ app.post('/login', (req, res) => {
   } else {
   if (result.length > 0) {
   console.log("Check Successful")
-  res.sendStatus(200)
+  res.status(200).send(result)
   } else {
   console.log("Check Unsuccessful")
   res.sendStatus(401)

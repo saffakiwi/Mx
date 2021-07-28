@@ -15,13 +15,13 @@ const [password, setPassword] = useState('')
 
 let history = useHistory()
 
-const handleLogin = (id) => {
-  axios.post('http://localhost:4001/login', {
+const handleLogin = () => {
+  axios.post('http://localhost:4000/login', {
     "email": email,
     "password": password,
   })
   .then(response => {
-    history.push('/progresstracker/users' + id)
+    history.push('/progresstracker/')
     console.log(response.status)
     console.log("Login Successful")
     alert("Successfully logged in")

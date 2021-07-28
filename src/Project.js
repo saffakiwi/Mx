@@ -140,7 +140,7 @@ const classes = useStyling();
 const [project, setProject] = useState([])
 const [help, setHelp] = useState([])
 const [users, setUsers] = useState([])
-const [done, setDone] = useState([1])
+const [done, setDone] = useState([])
 
 const [id, setId] = useState([])
 useEffect(() => {
@@ -154,6 +154,7 @@ useEffect(() => {
   axios.get("http://localhost:4001/help_requests")
     .then(response => {
       setHelp(response.data)
+      setDone(new Array(response.data.length).fill(false))
     })
   },[]) 
 
@@ -187,10 +188,13 @@ function updateTask() {
     console.log("updated")
     }
   )}
-  const [isChecked, setIsChecked] = useState(0)
-  const handleCheck = () => {
-  setIsChecked(isChecked)
-  console.log(isChecked)
+
+  const handleCheck = (i) => {
+    let temp = [...done]
+
+    temp[i] = !done[i];
+
+    setDone(temp)
   }
   const [isZoomed, setIsZoomed] = useState(false)
   const handleImgLoad = () => {
@@ -204,6 +208,7 @@ function updateTask() {
 return (
     
   <div className={classes.root}>   
+    <AppDrawer/>
     <Container  classes={{root: styles.background}}  maxWidth="xl">
 
 {/*....................................................Top right buttons on contents page.........................................*/} 
@@ -283,14 +288,11 @@ return (
 {/*....................................................Card for student help requests................................................*/}   
   <div id="cards">
         
-    {help.map(users => ( 
+    {help.map((users, index) => ( 
       <div id="content1">    
         <div className="checkmain">
-          <input id="checkbox" type="checkbox" value={done}
-          onChange={() => {
-            handleCheck(!isChecked === "0")
-            setDone(isChecked === "1")}
-          }/>
+          <input id="checkbox" type="checkbox" value={done[index]}
+          onChange={() => {handleCheck(index)}} />
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>

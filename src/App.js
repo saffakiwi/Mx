@@ -8,29 +8,29 @@ import AppDrawer from './componentssp/appDrawer';
 import ProView from './componentspf/proView'
 import { useEffect, useState } from "react"
 import axios from "axios"
+import TabProgressTracker from './componentssp/tabProgressTracker';
+import TabStudentProfiles from './componentssp/tabStudentProfiles';
+import Dashboard from './Drawer.js';
 
 function App() {
   const [users, setUsers] = useState([])
   const [userInfo, setUserInfo] = useState([])
   
   useEffect(() => {
-    axios.get("http://localhost:4001/users")
-    .then((response) => {
-      setUsers(response.data)
+    axios.get('http://localhost:4001/users')
+    .then((res) => {
+      setUsers(res.data)
     })
+    .then('users: ' + users)
 
-  }, )
+  }, [])
 
   return (
     <Router>
       <Switch>
-        <Route path='/users/:user_id' exact component={ProView} />
-        <Route path='/progresstracker'>
-          <AppDrawer user={users} /> 
-            </Route> 
-            <Route exact path="/projects">
-          <Projects />
-        </Route>
+        <Route exact path='/dashboard'>
+          <AppDrawer/>
+          </Route>
             <Route exact path="/">
           <Homepage />
         </Route>
