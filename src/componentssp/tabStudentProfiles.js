@@ -6,26 +6,56 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import ProView from "../componentspf/proView"
 
-
-export default function TabStudentProfiles(props) {
+export default function TabStudentProfiles() {
   const history = useHistory()
+  const [users, setUsers] = useState([])
+  // const [userInfo, setUserInfo] = useState([])
 
-  const handleClick = (id) => {
-    history.push('/users/' + id)
+  useEffect(() => {
+    axios.get("http://localhost:4001/users").then((response) => {
+      setUsers(response.data)
+    })
+  })
+  // -------------------------------------
+  const handleChange = (id) => {
+    axios.get("http://localhost:4001/users", {}).then((res) => {
+      history.push("/users/" + id)
+      console.log(id)
+    }, [])
   }
-
+  // ------------------------
   return (
     <div className="mainDiv">
+      <div className="topButtons">
+        <img
+          src="./photos/takeScreenshot.png"
+          alt="button for take screenshot"
+          className="imgWidth"
+        />
+        <img src="./photos/helpCenter.png" alt="button for take help centre" className="imgWidth" />
+        <img
+          src="./photos/moreProjects.png"
+          alt="button for take more projects"
+          className="imgWidth"
+        />
+      </div>
       <div className="innerContainer3">
         <div className="studentOuterDiv">
-          {props.user.map((user) => {
+          {users.map((users) => {
             return (
               <Grid>
-                <Card className="studentInnerDiv" key={user.user_id}>
-                  <a herf='/users/:user_id'><img src={user.profile_pic} onClick={() => handleClick(user.user_id)} alt="student info" className="studentPic" /></a>
+                <Card className="studentInnerDiv" key={users.user_id}>
+                  <a>
+                    <img
+                      src={users.profile_pic}
+                      onClick={() => handleChange(users.user_id)}
+                      alt="student info"
+                      className="studentPic"
+                    />
+                  </a>
                   <h5 className="studentName">
-                    {user.first_name.toUpperCase() + " "}
-                    {user.last_name.toUpperCase()}
+                    {users.first_name.toUpperCase() + " "}
+                    {users.last_name.toUpperCase()}
                   </h5>
                 </Card>
               </Grid>

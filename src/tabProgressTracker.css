@@ -82,14 +82,22 @@
   height: 600px;
   overflow: scroll;
 }
+.innerContainer3::-webkit-scrollbar {
+  width: 20px;
+}
+.innerContainer3::-webkit-scrollbar-thumb {
+  background: #43c0f6;
+  border-radius: 8px;
+}
 
 .studentOuterDiv {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .studentInnerDiv {
-  margin: 50px;
+  margin: 30px;
   background-color: #fff;
   height: 200px;
   width: 194px;

@@ -35,17 +35,23 @@ const styles = makeStyles((theme) => ({
   appHeader: {
     zIndex: "1400",
   },
+
+  appHeaderToolbar: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
   toolbar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    padding: theme.spacing(0.5, 1),
+    padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(2, -1),
+    padding: theme.spacing(0, 0, 0, 8),
   },
   bottomDiv: {
     position: "relative",
@@ -88,7 +94,7 @@ export default function AppDrawer(props) {
   const [bottomTop, setBottomTop] = useState("180px")
 
   const toggleDrawer = (open) => {
-    if (drawerState == false) {
+    if (drawerState === false) {
       setDrawerState(true)
       setDrawerWidth("280px")
       setUserImage("visible")
@@ -106,154 +112,156 @@ export default function AppDrawer(props) {
   }
 
   return (
-    <Router>
-      <div>
-        <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
-          <Toolbar>
-            <div>
-              <img src="./photos/logo.png" alt="level up works logo" />
-            </div>
-            <div className="flag">
+    <div>
+      <Router>
+        <div>
+          <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
+            <Toolbar classname={classes.appHeaderToolbar}>
               <div>
-                <img src="./photos/nzFlag.png" alt="level up works logo" />
+                <img src="./photos/logo.png" alt="level up works logo" />
               </div>
-              <div>
-                <img src="./photos/maoriFlag.png" alt="level up works logo" />
+              <div className="flag">
+                <div>
+                  <img src="./photos/nzFlag.png" alt="level up works logo" />
                 </div>
+                <div>
+                  <img src="./photos/maoriFlag.png" alt="level up works logo" />
+                </div>
+              </div>
+            </Toolbar>
+          </AppBar>
+
+          <Drawer
+            style={{ width: drawerWidth }}
+            classes={{ paper: classes.drawerPaper }}
+            variant="persistent"
+            anchor={"left"}
+            open={drawerState}
+          >
+            <List>
+              <img src="./photos/userBig.png" style={{ visibility: userImage }} />
+              <Link to="/progresstracker" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img src="./photos/progressDark.png" alt="sidenav icon" />
+                  </ListItemIcon>
+                  <ListItemText>PROGRESS TRACKER</ListItemText>
+                </ListItem>
+              </Link>
+
+              <Link to="/studentProfiles" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img src="./photos/userGraduate.png" alt="sidenav icon" />
+                  </ListItemIcon>
+                  <ListItemText>STUDENT PROFILES</ListItemText>
+                </ListItem>
+              </Link>
+
+              <Link to="/helpRequests" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img src="./photos/helpIcon.png" alt="sidenav icon" />
+                  </ListItemIcon>
+                  <ListItemText>HELP REQUESTS</ListItemText>
+                </ListItem>
+              </Link>
+
+              <Link to="/projects" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
+                  </ListItemIcon>
+                  <ListItemText>PROJECT SUBMISSIONS</ListItemText>
+                </ListItem>
+              </Link>
+
+              <Link to="/projectLibrary" className={classes.link}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <img src="./photos/libraryLight.png" alt="sidenav icon" />
+                  </ListItemIcon>
+                  <ListItemText>PROJECT LIBRARY</ListItemText>
+                </ListItem>
+              </Link>
+
+              {/* ------------Button for Caret-----------------*/}
+              <Button onClick={() => toggleDrawer(true)}>
+                <img src={caret} alt="caret" />
+              </Button>
+
+              {/*------------Bottom Navigation---------------- */}
+              <div className={classes.bottomDiv} style={{ top: bottomTop }}>
+                <BottomNavigation
+                  showLabels
+                  className={classes.bottomNav}
+                  style={{ flexDirection: bottomDirection }}
+                >
+                  <BottomNavigationAction
+                    label="Profile"
+                    icon={<img src="./photos/userIcon.png" alt="profile" />}
+                    className={classes.bottomNavAction}
+                  />
+                  <BottomNavigationAction
+                    label="Settings"
+                    icon={<img src="./photos/settingIcon.png" alt="settings" />}
+                    className={classes.bottomNavAction}
+                  />
+                  <BottomNavigationAction
+                    label="Logout"
+                    icon={<img src="./photos/logoutIcon.png" alt="logout" />}
+                    className={classes.bottomNavAction}
+                  />
+                </BottomNavigation>
+              </div>
+            </List>
+            {/*------------- Footer ------------------*/}
+            <div className={classes.bottomPush}>
+              <img src="./photos/copyright.png" alt="copyright" className={classes.copyrightPic} />
             </div>
-          </Toolbar>
-        </AppBar>
+          </Drawer>
+          {/* -------------- Routes ------------------- */}
+          <Switch>
+            <Route exact path="/progresstracker">
+              <div className={classes.content}>
+                <div className={classes.toolbar} />
 
-        <Drawer
-          style={{ width: drawerWidth }}
-          classes={{ paper: classes.drawerPaper }}
-          variant="permanent"
-          anchor={"left"}
-          open={drawerState}
-        >
-          <List>
-            <img src="./photos/userBig.png" style={{ visibility: userImage }} />
-            <Link to="/" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/progressDark.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROGRESS TRACKER</ListItemText>
-              </ListItem>
-            </Link>
+                <TabProgressTracker user={props.user} />
+              </div>
+            </Route>
 
-            <Link to="/studentProfiles" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/userGraduate.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>STUDENT PROFILES</ListItemText>
-              </ListItem>
-            </Link>
+            <Route exact path="/studentProfiles">
+              <main className={classes.content}>
+                <div className={classes.toolbar} />
 
-            <Link to="/helpRequests" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/helpIcon.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>HELP REQUESTS</ListItemText>
-              </ListItem>
-            </Link>
+                <TabStudentProfiles user={props.user} />
+              </main>
+            </Route>
 
-            <Link to="/projects" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROJECT SUBMISSIONS</ListItemText>
-              </ListItem>
-            </Link>
+            <Route exact path="/helpRequests">
+              <main className={classes.content}>
+                <div className={classes.toolbar} />
+                <h2>Help Requests</h2>
+              </main>
+            </Route>
 
-            <Link to="/projectLibrary" className={classes.link}>
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/libraryLight.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROJECT LIBRARY</ListItemText>
-              </ListItem>
-            </Link>
+            <Route exact path="/projects">
+              <main className={classes.content}>
+                {/* <div className={classes.toolbar} /> */}
+                {/* <h2>Project Submissions</h2> */}
+                <Projects />
+              </main>
+            </Route>
 
-            {/* ------------Button for Caret-----------------*/}
-            <Button onClick={() => toggleDrawer(true)}>
-              <img src={caret} alt="caret" />
-            </Button>
-
-            {/*------------Bottom Navigation---------------- */}
-            <div className={classes.bottomDiv} style={{ top: bottomTop }}>
-              <BottomNavigation
-                showLabels
-                className={classes.bottomNav}
-                style={{ flexDirection: bottomDirection }}
-              >
-                <BottomNavigationAction
-                  label="Profile"
-                  icon={<img src="./photos/userIcon.png" alt="profile" />}
-                  className={classes.bottomNavAction}
-                />
-                <BottomNavigationAction
-                  label="Settings"
-                  icon={<img src="./photos/settingIcon.png" alt="settings" />}
-                  className={classes.bottomNavAction}
-                />
-                <BottomNavigationAction
-                  label="Logout"
-                  icon={<img src="./photos/logoutIcon.png" alt="logout" />}
-                  className={classes.bottomNavAction}
-                />
-              </BottomNavigation>
-            </div>
-          </List>
-          {/*------------- Footer ------------------*/}
-          <div className={classes.bottomPush}>
-            <img src="./photos/copyright.png" alt="copyright" className={classes.copyrightPic} />
-          </div>
-        </Drawer>
-        {/* -------------- Routes ------------------- */}
-        <Switch>
-          <Route exact path="/progresstracker">
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-
-              <TabProgressTracker user={props.user} />
-            </main>
-          </Route>
-
-          <Route exact path="/studentProfiles">
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-
-              <TabStudentProfiles user={props.user} />
-            </main>
-          </Route>
-
-          <Route exact path="/helpRequests">
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-              <h2>Help Requests</h2>
-            </main>
-          </Route>
-
-          <Route exact path="/projects">
-            <main className={classes.content}>
-              {/* <div className={classes.toolbar} /> */}
-              {/* <h2>Project Submissions</h2> */}
-              <Projects />
-            </main>
-          </Route>
-
-          <Route exact path="/projectLibrary">
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-              <h2>Project Library</h2>
-            </main>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+            <Route exact path="/projectLibrary">
+              <main className={classes.content}>
+                <div className={classes.toolbar} />
+                <h2>Project Library</h2>
+              </main>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
   )
 }
