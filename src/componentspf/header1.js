@@ -6,12 +6,11 @@ import Maori from './Maori.png';
 import Nz from './Nz.png';
 import Lang from './Lang.png';
 import { makeStyles } from '@material-ui/core';
-import E40 from './Ellipse40.png';
 import { Container } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { useParams } from 'react-router';
+
 
 
 const useStyles = makeStyles({
@@ -48,32 +47,40 @@ const useStyles = makeStyles({
     top: '20px',
     fontWeight: '680',
     fontFamily: 'Open Sans',
+    opacity: "86%",
   },
   rt: {
     display: "flex",
     justifyContent: "flex-end",
     position: 'relative',
-    marginLeft: '600px',
-  },
+    left: "46%",
 
+  },
+  avatar: {
+    display: "flex",
+    justifyContent: "flex-end",
+    position: 'relative',
+    left: "35%",
+    top: "20px",
+  },
+  name: {
+    color: "#ffffff",
+    fontFamily: 'Open Sans',
+    fontSize: "10px",
+    paddingTop: "6px",
+    opacity: "86%",
+}
 });
 
-export default function Header(users) {
+export default function Header() {
   const classes = useStyles();
-  const [userInfo, setUserInfo] = useState([])
-  const [profile_pic, setProfile_pic]= useState([])
-  const [users, setUsers] = useState([])
+  const [teacher, setTeacher] = useState([])
 
-  //   useEffect(() => {
-  //     axios.post("http://localhost:4001/getUser", {
-  //         user_id: match.params.user_id
-  //     })
-  //         .then(response => {
-  //             console.log(response.data)
-  //             setUserInfo(response.data)
-  //         })
-  //         .catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios.get("http://localhost:4001/teachers").then((response) => {
+      setTeacher(response.data)
+    })
+  }, [])
 
   return (
     <div>
@@ -92,17 +99,17 @@ export default function Header(users) {
           <IconButton style={{ height: "0px", width: "1px" }}> <img src={Nz} style={{ height: "10px", width: "18px" }} /></IconButton>
           <IconButton style={{ height: "0px", width: "35px" }}><img src={Maori} style={{ height: "10px", width: "18px" }} /></IconButton>
         </div>
-      
-          <div>
-            <IconButton style={{ height: "20px", width: "3px" }} >
-              <img src={"/" + setProfile_pic.profile_pic}   style={{ height: "20px", width: "20px" }} />
-              </IconButton> 
-              </div>
-      
+
+        {teacher.map((users) => (
+          <div className={classes.avatar}>
+            <img src={'/' + users.profile_pic} style={{ height: "18px", width: "18px", padding: "3px", paddingRight: "8px"  }} /> {" "}
+            
+            <h5 className={classes.name}> { users.first_name.toUpperCase() + " "} {users.last_name.toUpperCase()} </h5>
+          </div>
+        ))}
+
       </Container>
 
     </div >
   )
 };
-
-// src={"/" + userInfo[0].profile_pic}alt="profile3"

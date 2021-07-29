@@ -35,7 +35,7 @@ function LoginForm() {
         password: password,
       })
       .then((response) => {
-        history.push("/progresstracker/users" + id)
+        history.push("/dashboard" + id)
         console.log(response.status)
         console.log("Login Successful")
         alert("Successfully logged in")
@@ -43,7 +43,7 @@ function LoginForm() {
       .catch((err) => {
         console.log(err)
         alert("Incorrect email or password")
-      })
+      }, [])
   }
 
   return (

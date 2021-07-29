@@ -7,6 +7,7 @@ import Project from './Bk2Proj.png';
 import Dash from './Bk2Db.png';
 import EditBtn from './EditBtn.png';
 import ChgPhoBtn from './ChgPhoBtn.png';
+import SettinBtn from './SettinBtn.png';
 import TabProgressTracker from '../componentssp/tabProgressTracker.js';
 
 const useStyles = makeStyles({
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
         width: "220px",
         height: "370px",
         marginLeft: "250px",
-        marginTop: "40px",
+        marginTop: "50px",
         borderRadius: "25px",
         flexGrow: "1",
         display: "flex",
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
     },
     cardr: {
         borderRadius: "25px",
-        marginTop: "40px",
+        marginTop: "50px",
         marginRight: "180px",
         elevation: "0",
         marginBottom: "40px",
@@ -41,7 +42,7 @@ const useStyles = makeStyles({
     },
     left1: {
         display: "flex",
-        // padding: '7px',
+        padding: '7px',
         display: "block",
         margin: "auto",
         alignItems: 'centre',
@@ -52,12 +53,13 @@ const useStyles = makeStyles({
         fontSize: "45px",
         fontWeight: "bold",
         color: "#707070",
-        padding: '30px',
+        marginTop: '20px',
+      padding:'20px',
         textAlign: 'center',
     },
     list1: {
-        marginLeft: "13px",
-        marginBottom: "50px",
+        marginLeft: "8px",
+        marginBottom: "30px",
         lineSpacing: "30px",
         marginRight: '0',
         lineHeight: '2.5',
@@ -68,15 +70,15 @@ const useStyles = makeStyles({
         fontSize: "20px",
         fontWeight: "lighter",
         color: "#a5a5a5",
-        padding: "20px",
+        // padding: "20px",
 
     },
-    b1: {
-        // fontFamily: "Nunito",
+    b1 : {
+        fontFamily:"Open Sans",
         fontSize: "20px",
         color: "#707070",
-        padding: "12px",
-        marginRight: "0",
+        paddingLeft: '20px',
+      
     },
 
 });
@@ -87,6 +89,7 @@ export default function ProView({ match }) {
     const classes = useStyles();
     // const [profile_pic, setProfile_pic] = useState([])
     const [users, setUsers] = useState([])
+    const [teacher, setTeacher] = useState([])
 
 
     useEffect(() => {
@@ -105,7 +108,7 @@ export default function ProView({ match }) {
         const month = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
         return (
             <div>
-                <p> {date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</p>
+                <p style={{fontFamily:"Open Sans"}} >{date.getDate()} {month[date.getMonth()]} {date.getFullYear()}</p>
             </div>
         )
     }
@@ -128,7 +131,7 @@ export default function ProView({ match }) {
                                             <br />
                                             <p><img src={EditBtn} style={{ height: "30px", width: "120px" }} /></p>
                                             <p><img src={ChgPhoBtn} style={{ height: "30px", width: "120px" }} /></p>
-                                            {/* <p><img src={SettinBtn} style={{ height: "30px", width: "120px" }} /></p> */}
+                                            <p><img src={SettinBtn} style={{ height: "30px", width: "120px" }} /></p>
                                         </CardContent>
                                     </Card>
                                 </Grid>
@@ -137,23 +140,25 @@ export default function ProView({ match }) {
                                         <h1 className={classes.h1}> {userInfo[0].first_name} {userInfo[0].last_name}</h1>
                                         <CardContent className={classes.left}>
                                             <Grid container spacing={6} className={classes.list1} >
-                                                <Grid item xs={5} className={classes.a1}>
-                                                    <p1 className={classes.a1}>School</p1>
-                                                    <p>Teacher</p>
-                                                    <p>Course</p>
-                                                    <p>Date of Birth</p>
-                                                    <p>Contact No.</p>
-                                                    <p>Email Address</p>
+                                                <Grid item xs={5}>
+                                    
+                                                        <p className={classes.a1}>School</p>
+                                                        <p className={classes.a1}>Teacher</p>
+                                                        <p className={classes.a1}>Course</p>
+                                                        <p className={classes.a1}>Date of Birth</p>
+                                                        <p className={classes.a1}>Contact No.</p>
+                                                        <p className={classes.a1}>Email Address</p>
+                                                
                                                 </Grid>
-                                                <Grid item sm={6} className={classes.b1}>
-                                                    <div className={classes.p} >
-                                                        <p >{userInfo[0].school}</p>
-                                                        <p>{userInfo[0].teacher_name}</p>
-                                                        <p>{userInfo[0].course}</p>
-                                                        <p>{getHumanDate(userInfo[0].date_of_birth)}</p>
-                                                        <p>{userInfo[0].contact_number}</p>
-                                                        <p>{userInfo[0].email}</p>
-                                                    </div>
+                                                <Grid item sm={6}>
+                                                    
+                                                        <p className={classes.b1}  >{userInfo[0].school}</p>
+                                                        <p className={classes.b1} >{userInfo[0].teacher_name}</p>
+                                                        <p className={classes.b1} >{userInfo[0].course}</p>
+                                                        <p className={classes.b1} >{getHumanDate(userInfo[0].date_of_birth)}</p>
+                                                        <p className={classes.b1} >{userInfo[0].contact_number}</p>
+                                                        <p className={classes.b1} >{userInfo[0].email}</p>
+                                                
                                                 </Grid>
                                             </Grid>
                                         </CardContent>
@@ -167,8 +172,10 @@ export default function ProView({ match }) {
                         </Container>
                     </Box>
                     <Footer />
+
                 </div>
             )}
+
         </>
     );
 }

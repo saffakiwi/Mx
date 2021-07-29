@@ -54,7 +54,7 @@ app.post('/login', (req, res) => {
   } else {
   if (result.length > 0) {
   console.log("Check Successful")
-  res.sendStatus(200)
+  res.sendStatus(200).send(result)
   } else {
   console.log("Check Unsuccessful")
   res.sendStatus(401)
@@ -80,6 +80,23 @@ app.get('/help_requests', (req, res) => {
         res.send(result)
     })
 });
+
+// app.put("/update", (req,res) => {
+// const id= [req.body.id]
+// const done= [req.body.done]
+// db.query('UPDATE helprequests SET done=? WHERE id=?',
+// [id, done], function(err, result) {
+//   if (err) {
+//   console.log(err)
+//   } else {
+//   if (result.length > 0) {
+//   console.log("Check Successful")
+//   res.sendStatus(200).send(result)
+//   } else {
+//   console.log("Check Unsuccessful")
+//   res.sendStatus(401)
+//  ) }
+// });
 
 app.listen(4001)
 
