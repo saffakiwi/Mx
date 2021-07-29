@@ -8,7 +8,7 @@ import Dash from './Bk2Db.png';
 import EditBtn from './EditBtn.png';
 import ChgPhoBtn from './ChgPhoBtn.png';
 import SettinBtn from './SettinBtn.png';
-import TabProgressTracker from '../componentssp/tabProgressTracker.js';
+// import TabProgressTracker from '../componentssp/tabProgressTracker.js';
 
 const useStyles = makeStyles({
     roota: {
@@ -167,7 +167,7 @@ export default function ProView({ match }) {
                             </Grid>
                             <div className={classes.btn} >
                                 <Button><img src={Project} style={{ height: "35px", width: "150px" }} /></Button>
-                                <a href='../progresstracker'><Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button></a>
+                                <a href='../dashboard'><Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button></a>
                             </div>
                         </Container>
                     </Box>

@@ -11,7 +11,7 @@ export default function TabProgressTracker() {
     axios.get("http://localhost:4001/users").then((response) => {
       setUsers(response.data)
     })
-  })
+  },[])
 
   return (
     <>
@@ -19,17 +19,17 @@ export default function TabProgressTracker() {
         {/* --------Div for three buttons at top-------------- */}
         <div className="topButtons">
           <img
-            src="./photos/takeScreenshot.png"
+            src="/takeScreenshot.png"
             alt="button for take screenshot"
             className="imgWidth"
           />
           <img
-            src="./photos/helpCenter.png"
+            src="/helpCenter.png"
             alt="button for take help centre"
             className="imgWidth"
           />
           <img
-            src="./photos/moreProjects.png"
+            src="/moreProjects.png"
             alt="button for take more projects"
             className="imgWidth"
           />
@@ -37,10 +37,10 @@ export default function TabProgressTracker() {
         {/* div for inner container */}
         <div className="innerContainer2">
           <div className="innerContainer">
-            <img src="./photos/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
+            <img src="/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
             <span>
-              <img src="./photos/exportIcon.png" alt="export icon"></img>
-              <img src="./photos/exportSpreadSheet.png" alt="exportSpreadSheet" />
+              <img src="/exportIcon.png" alt="export icon"></img>
+              <img src="/exportSpreadSheet.png" alt="exportSpreadSheet" />
             </span>
           </div>
 

@@ -90,7 +90,7 @@ export default function Header() {
           <img src={Logo} className={classes.logo3Pic} /></div>
 
         <div className={classes.mid} >
-          <a className={classes.midd} href="#"> HOME</a>
+          <a className={classes.midd} href="/"> HOME</a>
           <a className={classes.midd} href="#">PROJECTS</a>
           <a className={classes.midd} href="#">TEACHERS </a> </div>
 

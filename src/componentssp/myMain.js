@@ -12,11 +12,8 @@ import {
 } from "@material-ui/core"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles"
-import { useState } from "react"
-import TabProgressTracker from "./tabProgressTracker"
-import TabStudentProfiles from "./tabStudentProfiles"
-import Projects from "../Project"
-import Navigation from "./navigation"
+import { useState } from "react";
+import Navigation from "./navigation";
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -88,7 +85,7 @@ export default function MyMain(props) {
   const [profilePic, setProfilePic] = useState("hidden")
   const [bottomDirection, setBottomDirection] = useState("column")
   const [bottomTop, setBottomTop] = useState("180px")
-  const [caret, setCaret] = useState("./photos/openCaretRight.png")
+  const [caret, setCaret] = useState("/openCaretRight.png")
   const [caretColor, setCaretColor] = useState("#43C0F6")
   const classes = styles()
   // -----------conditional rendering
@@ -106,7 +103,7 @@ export default function MyMain(props) {
       setProfilePic("visible")
       setBottomTop("250px")
       setBottomDirection("row")
-      setCaret("./photos/openCaretLeft.png")
+      setCaret("/openCaretLeft.png")
       setCaretColor("#b2e4fa")
     } else {
       setDrawerState(false)
@@ -114,7 +111,7 @@ export default function MyMain(props) {
       setProfilePic("hidden")
       setBottomTop("110px")
       setBottomDirection("column")
-      setCaret("./photos/openCaretRight.png")
+      setCaret("/openCaretRight.png")
       setCaretColor("#43C0F6")
     }
   }
@@ -124,14 +121,14 @@ export default function MyMain(props) {
       <AppBar position="fixed" color="default" className={classes.appbarHeader}>
         <Toolbar className={classes.drawerHeader}>
           <div>
-            <img src="./photos/logo.png" alt="level up works logo" />
+            <img src="/Leveluplogo.png" alt="level up works logo" />
           </div>
           <div className={classes.drawerHeaderFlag}>
             <div className={classes.flag}>
-              <img src="./photos/nzFlag.png" alt="level up works logo" />
+              <img src="/NZflag.png" alt="level up works logo" />
             </div>
             <div>
-              <img src="./photos/maoriFlag.png" alt="level up works logo" />
+              <img src="/maoriFlag.png" alt="level up works logo" />
             </div>
           </div>
         </Toolbar>
@@ -146,14 +143,14 @@ export default function MyMain(props) {
       >
         <List>
           <img
-            src="./photos/userBig.png"
+            src="/userBig.png"
             alt="teacher profile pic"
             style={{ marginTop: "100px", visibility: profilePic }}
           />
           {/* <Link to="/progresstracker" className={classes.tabLinks}> */}
           <ListItem button value="b1" onClick={() => handleClick("b1")}>
             <ListItemIcon>
-              <img src="./photos/progressDark.png" alt="sidenav icon" />
+              <img src="/progressDark.png" alt="sidenav icon" />
             </ListItemIcon>
             <ListItemText classes={{ primary: classes.tabLinksText }} primary="PROGRESS TRACKER" />
           </ListItem>
@@ -162,7 +159,7 @@ export default function MyMain(props) {
           {/* <Link to="/studentProfiles" className={classes.tabLinks}> */}
           <ListItem button value="b2" onClick={() => handleClick("b2")}>
             <ListItemIcon>
-              <img src="./photos/userGraduate.png" alt="sidenav icon" />
+              <img src="/userGraduate.png" alt="sidenav icon" />
             </ListItemIcon>
             <ListItemText classes={{ primary: classes.tabLinksText }} primary="STUDENT PROFILES" />
           </ListItem>
@@ -171,7 +168,7 @@ export default function MyMain(props) {
           {/* <Link to="/helpRequests" className={classes.tabLinks}> */}
           <ListItem button>
             <ListItemIcon>
-              <img src="./photos/helpIcon.png" alt="sidenav icon" />
+              <img src="/helpIcon.png" alt="sidenav icon" />
             </ListItemIcon>
             <ListItemText classes={{ primary: classes.tabLinksText }} primary="HELP REQUESTS" />
           </ListItem>
@@ -180,7 +177,7 @@ export default function MyMain(props) {
           {/* <Link to="/projects" className={classes.tabLinks}> */}
           <ListItem button value="b3" onClick={() => handleClick("b3")}>
             <ListItemIcon>
-              <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
+              <img src="/projectSubmissions2.png" alt="sidenav icon" />
             </ListItemIcon>
             <ListItemText
               classes={{ primary: classes.tabLinksText }}
@@ -192,7 +189,7 @@ export default function MyMain(props) {
           {/* <Link to="/projectLibrary" className={classes.tabLinks}> */}
           <ListItem button>
             <ListItemIcon>
-              <img src="./photos/libraryLight.png" alt="sidenav icon" />
+              <img src="/libraryLight.png" alt="sidenav icon" />
             </ListItemIcon>
             <ListItemText classes={{ primary: classes.tabLinksText }} primary="PROJECT LIBRARY" />
           </ListItem>
@@ -217,17 +214,17 @@ export default function MyMain(props) {
             >
               <BottomNavigationAction
                 label="Profile"
-                icon={<img src="./photos/userIcon.png" alt="profile" />}
+                icon={<img src="/userIcon.png" alt="profile" />}
                 className={classes.bottomNavAction}
               />
               <BottomNavigationAction
                 label="Settings"
-                icon={<img src="./photos/settingIcon.png" alt="settings" />}
+                icon={<img src="/settingIcon.png" alt="settings" />}
                 className={classes.bottomNavAction}
               />
               <BottomNavigationAction
                 label="Logout"
-                icon={<img src="./photos/logoutIcon.png" alt="logout" />}
+                icon={<img src="/logoutIcon.png" alt="logout" />}
                 className={classes.bottomNavAction}
               />
             </BottomNavigation>
@@ -235,7 +232,7 @@ export default function MyMain(props) {
         </List>
         {/*------------- Footer ------------------*/}
         <div className={classes.bottomPush}>
-          <img src="./photos/copyright.png" alt="copyright" className={classes.copyrightPic} />
+          <img src="/copyright.png" alt="copyright" className={classes.copyrightPic} />
         </div>
       </Drawer>
 

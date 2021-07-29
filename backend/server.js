@@ -26,6 +26,7 @@ app.get("/users", function (req, res) {
   db.query(
     "SELECT user_id,first_name,last_name,profile_pic FROM users WHERE role='student'",
     function (err, result) {
+      console.log(result)
       res.send(result)
     })
 });
@@ -64,39 +65,42 @@ app.post('/login', (req, res) => {
   })
 
   app.get('/teachers', (req, res) => {
-    db.query("SELECT * FROM users WHERE role = 'teacher'", (err, result) => {
-        res.send(result)
+    const teacher = req.body.role
+    db.query("SELECT * FROM users WHERE role = 'teacher'", [teacher], function(err, result) {
+      console.log(err)    
+      res.send(result)
     })
 });
 
 app.get('/progress_history', (req, res) => {
-    db.query("SELECT users.user_id, users.profile_pic, users.first_name, progress_history.date_submitted, progress_history.submission FROM progress_history JOIN users ON progress_history.user_id = users.user_id WHERE submission IS NOT NULL", (err, result) => {
-        res.send(result)
-    })
+  db.query("SELECT users.user_id, users.profile_pic, users.first_name, progress_history.date_submitted, progress_history.submission FROM progress_history JOIN users ON progress_history.user_id = users.user_id WHERE submission IS NOT NULL", function(err, result) {
+    console.log(err)  
+    res.send(result)
+  })
 });
 
 app.get('/help_requests', (req, res) => {
-    db.query("SELECT users.user_id, users.profile_pic, users.first_name, help_requests.date_created, help_requests.done FROM help_requests JOIN users ON help_requests.user_id = users.user_id WHERE done IS NULL", (err, result) => {
-        res.send(result)
-    })
+  db.query("SELECT users.user_id, users.profile_pic, users.first_name, help_requests.date_created, help_requests.done FROM help_requests JOIN users ON help_requests.user_id = users.user_id WHERE done IS NULL", function(err, result) {
+    console.log(err)  
+    res.send(result)
+  })
 });
 
-// app.put("/update", (req,res) => {
-// const id= [req.body.id]
-// const done= [req.body.done]
-// db.query('UPDATE helprequests SET done=? WHERE id=?',
-// [id, done], function(err, result) {
-//   if (err) {
-//   console.log(err)
-//   } else {
-//   if (result.length > 0) {
-//   console.log("Check Successful")
-//   res.sendStatus(200).send(result)
-//   } else {
-//   console.log("Check Unsuccessful")
-//   res.sendStatus(401)
-//  ) }
-// });
+// app.put("/update", (req, res) => {
+//   const id = req.body.id;
+//   const done = req.body.done;
+//   db.query(
+//       "UPDATE help_requests SET done = ? WHERE id = ?",
+//       [id, done],
+//       (err, result) => {
+//           if (err) {
+//               console.log(err)
+//           } else {
+//               res.send(result)
+//           }
+//       }
+//   )
+// })
 
 app.listen(4001)
 

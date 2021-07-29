@@ -12,10 +12,13 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from "@material-ui/core"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Redirect, Route, Link } from "react-router-dom"
 import TabProgressTracker from "./tabProgressTracker"
 import TabStudentProfiles from "./tabStudentProfiles"
 import Projects from "../Project"
+import Navigation from '../Navigation';
+import { findByDisplayValue } from "@testing-library/react";
+import Container from "@material-ui/core/Container";
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -84,7 +87,7 @@ const styles = makeStyles((theme) => ({
   },
 }))
 
-export default function AppDrawer(props) {
+export default function AppDrawer() {
   const classes = styles()
   const [drawerState, setDrawerState] = useState(false)
   const [drawerWidth, setDrawerWidth] = useState("70px")
@@ -111,14 +114,24 @@ export default function AppDrawer(props) {
     }
   }
 
+  const [page, setPage] = useState();
+  const handleChange = (prop) => {
+    setPage(prop)
+    }
+  
+
   return (
-    <div>
-      {/* <Router> */}
-        <div>
-          <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
-            <Toolbar classname={classes.appHeaderToolbar}>
+  
+      <div>
+        <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
+          <Toolbar>
+            <div>
+              <img src=".photos/logo.png" alt="level up works logo" />
+            </div>
+            <div className="flag">
               <div>
                 <img src="./photos/logo.png" alt="level up works logo" />
+              </div>
               </div>
               <div className="flag">
                 <div>
@@ -140,50 +153,46 @@ export default function AppDrawer(props) {
           >
             <List>
               <img src="./photos/userBig.png" style={{ visibility: userImage }} />
-              <Link to="/progresstracker" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/progressDark.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROGRESS TRACKER</ListItemText>
                 </ListItem>
-              </Link>
+              
 
-              <Link to="/studentProfiles" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/userGraduate.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>STUDENT PROFILES</ListItemText>
                 </ListItem>
-              </Link>
-
-              <Link to="/helpRequests" className={classes.link}>
+             
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/helpIcon.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>HELP REQUESTS</ListItemText>
                 </ListItem>
-              </Link>
+             
 
-              <Link to="/projects" className={classes.link}>
+             
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROJECT SUBMISSIONS</ListItemText>
                 </ListItem>
-              </Link>
+            
 
-              <Link to="/projectLibrary" className={classes.link}>
+              
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/libraryLight.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROJECT LIBRARY</ListItemText>
                 </ListItem>
-              </Link>
+             
 
               {/* ------------Button for Caret-----------------*/}
               <Button onClick={() => toggleDrawer(true)}>
@@ -214,13 +223,15 @@ export default function AppDrawer(props) {
                   />
                 </BottomNavigation>
               </div>
-            </List>
+              </List>
+          </Drawer>
+          
             {/*------------- Footer ------------------*/}
             <div className={classes.bottomPush}>
               <img src="./photos/copyright.png" alt="copyright" className={classes.copyrightPic} />
             </div>
-          </Drawer>
-          {/* -------------- Routes ------------------- */}
-       </div>  
-    </div>
-)}
+          
+         
+      </div>
+  )
+}
