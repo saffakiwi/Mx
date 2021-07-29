@@ -23,11 +23,9 @@ root: {
 background: {
   display: "flex",
   flexDirection: "column",
-  width: "98%",
+  width: "100%",
   backgroundColor: "#b2e4fa",
-  height: "800px",
-  marginTop: "65px",   
-  marginLeft: "70px", 
+  height: "800px",  
 },
 box: {
   display: "flex",
@@ -144,22 +142,22 @@ const [done, setDone] = useState([])
 
 const [id, setId] = useState([])
 useEffect(() => {
-  axios.get("http://localhost:4001/progress_history")
+  axios.get("http://localhost:4000/progress_history")
     .then(response => {
       setProject(response.data)
   })
 },[]) 
 
 useEffect(() => {
-  axios.get("http://localhost:4001/help_requests")
+  axios.get("http://localhost:4000/help_requests")
     .then(response => {
       setHelp(response.data)
-      setDone(new Array(response.data.length).fill(false))
+      
     })
   },[]) 
 
 useEffect(() => {
-  axios.get("http://localhost:4000/users/")
+  axios.get("http://localhost:4000/users")
     .then(response => {
       setUsers(response.data)
     })
@@ -179,22 +177,27 @@ const getHumanDate = (dateToChange) => {
 
 function updateTask() {
 
-  axios.put("http://localhost4000/update", {
+  axios.put("http://localhost:4000/update", {
   done: done,
   user_id: id
 })
   .then(response => {
     console.log(response.data)
+    setDone(new Array(response.data.length).fill(false))
     console.log("updated")
     }
   )}
 
   const handleCheck = (i) => {
+    const done = "string"
+    Boolean(done)
+       
     let temp = [...done]
 
     temp[i] = !done[i];
 
     setDone(temp)
+
   }
   const [isZoomed, setIsZoomed] = useState(false)
   const handleImgLoad = () => {
@@ -208,7 +211,7 @@ function updateTask() {
 return (
     
   <div className={classes.root}>   
-    <AppDrawer/>
+   
     <Container  classes={{root: styles.background}}  maxWidth="xl">
 
 {/*....................................................Top right buttons on contents page.........................................*/} 

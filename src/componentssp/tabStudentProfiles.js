@@ -44,10 +44,6 @@ export default function TabStudentProfiles() {
           {users.map((users) => {
             return (
               <Grid>
-<<<<<<< HEAD
-                <Card className="studentInnerDiv" key={user.user_id}>
-                  <a><img src={user.profile_pic} onClick={() => handleClick(user.user_id)} alt="student info" className="studentPic" /></a>
-=======
                 <Card className="studentInnerDiv" key={users.user_id}>
                   <a>
                     <img
@@ -57,7 +53,6 @@ export default function TabStudentProfiles() {
                       className="studentPic"
                     />
                   </a>
->>>>>>> d260c3900504f872311af75ac4f6612f340b7793
                   <h5 className="studentName">
                     {users.first_name.toUpperCase() + " "}
                     {users.last_name.toUpperCase()}

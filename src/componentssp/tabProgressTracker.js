@@ -2,7 +2,6 @@ import "../tabProgressTracker.css"
 import NumberButtons from "./numberButtons"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import AppDrawer from './appDrawer.js';
 
 export default function TabProgressTracker() {
   const [users, setUsers] = useState([])
@@ -12,26 +11,25 @@ export default function TabProgressTracker() {
     axios.get("http://localhost:4001/users").then((response) => {
       setUsers(response.data)
     })
-  })
+  },[])
 
   return (
     <>
-    <AppDrawer/>
       <div className="mainDiv">
         {/* --------Div for three buttons at top-------------- */}
         <div className="topButtons">
           <img
-            src="./photos/takeScreenshot.png"
+            src="/takeScreenshot.png"
             alt="button for take screenshot"
             className="imgWidth"
           />
           <img
-            src="./photos/helpCenter.png"
+            src="/helpCenter.png"
             alt="button for take help centre"
             className="imgWidth"
           />
           <img
-            src="./photos/moreProjects.png"
+            src="/moreProjects.png"
             alt="button for take more projects"
             className="imgWidth"
           />
@@ -39,31 +37,24 @@ export default function TabProgressTracker() {
         {/* div for inner container */}
         <div className="innerContainer2">
           <div className="innerContainer">
-            <img src="./photos/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
+            <img src="/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
             <span>
-              <img src="./photos/exportIcon.png" alt="export icon"></img>
-              <img src="./photos/exportSpreadSheet.png" alt="exportSpreadSheet" />
+              <img src="/exportIcon.png" alt="export icon"></img>
+              <img src="/exportSpreadSheet.png" alt="exportSpreadSheet" />
             </span>
           </div>
 
-<<<<<<< HEAD
-          {console.log(props.user)}
-          {/* div for students*/}
-          {/*{props.user.map((user) => {*/}
-            {/*return (*/}
-=======
           {console.log(users)}
           {/* div for students */}
           {users.map((user) => {
             return (
->>>>>>> d260c3900504f872311af75ac4f6612f340b7793
               <div className="studentsDiv">
                 {/* div for name and projects completed */}
 
                 <div className="completedProjects">
                   <h4>
-                    {/*{user.first_name.toUpperCase() + " "}
-                    {user.last_name.toUpperCase()}*/}
+                    {user.first_name.toUpperCase() + " "}
+                    {user.last_name.toUpperCase()}
                   </h4>
                   <h6>0/15 Projects Completed</h6>
                 </div>
@@ -85,8 +76,8 @@ export default function TabProgressTracker() {
                 <NumberButtons num="14" />
                 <NumberButtons num="15" />
               </div>
-            
-          {/*})}*/}
+            )
+          })}
         </div>
       </div>
     </>

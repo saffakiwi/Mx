@@ -114,7 +114,6 @@ export default function AppDrawer() {
     }
   }
 
-<<<<<<< HEAD
   const [page, setPage] = useState();
   const handleChange = (prop) => {
     setPage(prop)
@@ -130,86 +129,14 @@ export default function AppDrawer() {
               <img src=".photos/logo.png" alt="level up works logo" />
             </div>
             <div className="flag">
-=======
-  return (
-    <div>
-      <Router>
-        <div>
-          <AppBar elevation="0" position="fixed" color="default" className={classes.appHeader}>
-            <Toolbar classname={classes.appHeaderToolbar}>
->>>>>>> d260c3900504f872311af75ac4f6612f340b7793
               <div>
                 <img src="./photos/logo.png" alt="level up works logo" />
+              </div>
               </div>
               <div className="flag">
                 <div>
                   <img src="./photos/nzFlag.png" alt="level up works logo" />
                 </div>
-<<<<<<< HEAD
-            </div>
-          </Toolbar>
-        </AppBar>
-       
-        <Drawer
-          style={{ width: drawerWidth }}
-          classes={{ paper: classes.drawerPaper }}
-          variant="permanent"
-          anchor={"left"}
-          open={drawerState}
-        >
-          <List>
-            <img src="./photos/userBig.png" style={{ visibility: userImage }} />
-            
-              <ListItem button 
-              value="b1"
-              href="'./progresstracker"
-              onClick={() => handleChange("b1")}>
-                <ListItemIcon>
-                  <img src="./photos/progressDark.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROGRESS TRACKER</ListItemText>
-              </ListItem>
-            
-
-          
-              <ListItem button 
-              value="b2"
-              onClick={() => handleChange("b2")}>
-                <ListItemIcon>
-                  <img src="./photos/userGraduate.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>STUDENT PROFILES</ListItemText>
-              </ListItem>
-           
-
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/helpIcon.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>HELP REQUESTS</ListItemText>
-              </ListItem>
-           
-
-          
-              <ListItem button 
-              value="b3"
-              onClick={() => handleChange("b3")}>
-                <ListItemIcon>
-                  <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROJECT SUBMISSIONS</ListItemText>
-              </ListItem>
-            
-
-            
-              <ListItem button>
-                <ListItemIcon>
-                  <img src="./photos/libraryLight.png" alt="sidenav icon" />
-                </ListItemIcon>
-                <ListItemText>PROJECT LIBRARY</ListItemText>
-              </ListItem>
-            
-=======
                 <div>
                   <img src="./photos/maoriFlag.png" alt="level up works logo" />
                 </div>
@@ -226,51 +153,46 @@ export default function AppDrawer() {
           >
             <List>
               <img src="./photos/userBig.png" style={{ visibility: userImage }} />
-              <Link to="/progresstracker" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/progressDark.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROGRESS TRACKER</ListItemText>
                 </ListItem>
-              </Link>
+              
 
-              <Link to="/studentProfiles" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/userGraduate.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>STUDENT PROFILES</ListItemText>
                 </ListItem>
-              </Link>
-
-              <Link to="/helpRequests" className={classes.link}>
+             
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/helpIcon.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>HELP REQUESTS</ListItemText>
                 </ListItem>
-              </Link>
+             
 
-              <Link to="/projects" className={classes.link}>
+             
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/projectSubmissions2.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROJECT SUBMISSIONS</ListItemText>
                 </ListItem>
-              </Link>
->>>>>>> d260c3900504f872311af75ac4f6612f340b7793
+            
 
-              <Link to="/projectLibrary" className={classes.link}>
+              
                 <ListItem button>
                   <ListItemIcon>
                     <img src="./photos/libraryLight.png" alt="sidenav icon" />
                   </ListItemIcon>
                   <ListItemText>PROJECT LIBRARY</ListItemText>
                 </ListItem>
-              </Link>
+             
 
               {/* ------------Button for Caret-----------------*/}
               <Button onClick={() => toggleDrawer(true)}>
@@ -301,65 +223,15 @@ export default function AppDrawer() {
                   />
                 </BottomNavigation>
               </div>
-            </List>
+              </List>
+          </Drawer>
+          
             {/*------------- Footer ------------------*/}
             <div className={classes.bottomPush}>
               <img src="./photos/copyright.png" alt="copyright" className={classes.copyrightPic} />
             </div>
-<<<<<<< HEAD
-          </List>
-          </Drawer>
-      <main className={classes.content}>
-      <Navigation page={page}/>
-      </main>
-
+          
          
       </div>
-=======
-          </Drawer>
-          {/* -------------- Routes ------------------- */}
-          <Switch>
-            <Route exact path="/progresstracker">
-              <div className={classes.content}>
-                <div className={classes.toolbar} />
-
-                <TabProgressTracker user={props.user} />
-              </div>
-            </Route>
-
-            <Route exact path="/studentProfiles">
-              <main className={classes.content}>
-                <div className={classes.toolbar} />
-
-                <TabStudentProfiles user={props.user} />
-              </main>
-            </Route>
-
-            <Route exact path="/helpRequests">
-              <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <h2>Help Requests</h2>
-              </main>
-            </Route>
-
-            <Route exact path="/projects">
-              <main className={classes.content}>
-                {/* <div className={classes.toolbar} /> */}
-                {/* <h2>Project Submissions</h2> */}
-                <Projects />
-              </main>
-            </Route>
-
-            <Route exact path="/projectLibrary">
-              <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <h2>Project Library</h2>
-              </main>
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
->>>>>>> d260c3900504f872311af75ac4f6612f340b7793
   )
 }
