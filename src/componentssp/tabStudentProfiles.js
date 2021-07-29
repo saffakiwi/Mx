@@ -4,7 +4,7 @@ import { Card, Grid } from "@material-ui/core"
 import { useHistory } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import ProView from "../componentspf/proView"
+
 
 export default function TabStudentProfiles() {
   const history = useHistory()
@@ -47,11 +47,7 @@ export default function TabStudentProfiles() {
                 <Card className="studentInnerDiv" key={users.user_id}>
                   <a>
                     <img
-<<<<<<< HEAD
                       src={'/' + users.profile_pic}
-=======
-                      src={'/' + users.profile_pics}
->>>>>>> d68d94092ce2e070b19b366203dea006b6f60095
                       onClick={() => handleChange(users.user_id)}
                       alt="student info"
                       className="studentPic"

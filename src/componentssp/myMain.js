@@ -270,7 +270,7 @@ export default function MyMain(props) {
       {/* ----------Conditional rendering ---------------- */}
       <div className={classes.myMainDiv}>
         <div className={classes.myMainContent}>
-         <Navigation page={page} />       
+         {Navigation(page)}     
           </div>
       </div>
       {/* -------------- Routes ------------------- */}
