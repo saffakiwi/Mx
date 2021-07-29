@@ -52,7 +52,7 @@ form: {
 },
 });
  
-function AutoDialog({ handleClose }) {
+function AutoDialog({ handleClose, setCurrentUser }) {
 
 //parameters for dialog to close
 
@@ -95,7 +95,7 @@ return(
         <TeacherText />
       </div>
       <div className="student">
-        <FormLS />
+        <FormLS setCurrentUser={setCurrentUser}/>
       </div>
     </div>
     </Grid> 

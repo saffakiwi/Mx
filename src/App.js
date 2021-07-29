@@ -10,15 +10,15 @@ import TabProgressTracker from "./componentssp/tabProgressTracker"
 
 function App() {
   const [users, setUsers] = useState([])
-  // const [userInfo, setUserInfo] = useState([])
 
+  const [currentUser, setCurrentUser] = useState({})
   useEffect(() => {
     axios.get("http://localhost:4001/users")
       .then((res) => {
         setUsers(res.data)
       })
-      .then("users: " + users)
-  }, [])
+      .then("user:" + users)
+  }, [] )
 
   return (
     <Router>
@@ -26,10 +26,9 @@ function App() {
          <Route path="/users/:user_id" exact component={ProView} />
         <Route exact path="/dashboard/:user_id">
           <MyMain users={users} />
-          <TabProgressTracker />
         </Route>
         <Route exact path="/">
-          <Homepage />
+          <Homepage setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>
     </Router>

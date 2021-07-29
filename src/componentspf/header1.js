@@ -13,6 +13,7 @@ import axios from 'axios';
 
 
 
+
 const useStyles = makeStyles({
   root: {
     display: 'flex',
@@ -87,7 +88,8 @@ export default function Header() {
 
       <Container maxWidth="lg" className={classes.root}  >
         <div className={classes.logo3}>
-          <img src={Logo} className={classes.logo3Pic} /></div>
+         <Button style={{height: "35px"}} href="/"><img src={Logo} className={classes.logo3Pic} /></Button>
+          </div>
 
         <div className={classes.mid} >
           <a className={classes.midd} href="/"> HOME</a>

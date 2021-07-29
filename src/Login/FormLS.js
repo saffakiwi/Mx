@@ -3,7 +3,7 @@ import './Dialog.css';
 import Form from './Form.js';
 
 
-export default function FormLS () {
+export default function FormLS ( {setCurrentUser}) {
 
 const [formSelection, setFormSelection] = useState(1)
 const handleChange = (prop) => {
@@ -30,7 +30,7 @@ return (
         
 {/*.................................Main form conditional rendering...................................*/}
         <div>
-            <Form className="main" formSelection={formSelection}/>
+            <Form setCurrentUser = {setCurrentUser} className="main" formSelection={formSelection}/>
         </div>
     </div>
 )}

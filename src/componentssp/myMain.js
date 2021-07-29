@@ -14,6 +14,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles"
 import { useState } from "react";
 import Navigation from "./navigation";
+import TabProgressTracker from "./tabProgressTracker";
+import TabStudentProfiles from "./tabStudentProfiles";
+import Projects from "../Project";
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -89,7 +92,7 @@ export default function MyMain(props) {
   const [caretColor, setCaretColor] = useState("#43C0F6")
   const classes = styles()
   // -----------conditional rendering
-  const [page, setPage] = useState("")
+  const [page, setPage] = useState("b1")
 
   // ------Conditional rendering function
   const handleClick = (prop) => {
@@ -115,6 +118,19 @@ export default function MyMain(props) {
       setCaretColor("#43C0F6")
     }
   }
+
+  function Navigation(page) {
+    if (page === "b1") {
+      return <TabProgressTracker />
+    } else if (page === "b2") {
+      return <TabStudentProfiles />
+    } else if (page === "b3") {
+      return <Projects />
+    }
+    
+    
+  }
+
   return (
     // <Router>
     <div style={{ display: "flex" }}>
@@ -239,8 +255,8 @@ export default function MyMain(props) {
       {/* ----------Conditional rendering ---------------- */}
       <div className={classes.myMainDiv}>
         <div className={classes.myMainContent}>
-          <Navigation page={page} />
-        </div>
+         <Navigation page={page} />       
+          </div>
       </div>
       {/* -------------- Routes ------------------- */}
       {/* <Switch>

@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function Header() {
+export default function Header({ setCurrentUser }) {
 
     const [open, setOpen] = React.useState(false);
     const [selectedValue, setSelectedValue] = React.useState();
@@ -77,7 +77,7 @@ export default function Header() {
                     <p>REGISTER | LOGIN </p>
                     </Button>
                     <Dialog  classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}} selectedValue={selectedValue} open={open} onClose={handleClose}>
-                        <AutoDialog handleClose={setOpen} classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
+                        <AutoDialog setCurrentUser={setCurrentUser} handleClose={setOpen} classes={{root: styles.root, paperScrollPaper: styles.dialog, paper:styles.overflow,scrollPaper:styles.margin}}/>
                     </Dialog>
                         
                     </div>

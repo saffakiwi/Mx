@@ -61,9 +61,9 @@ right:23%;
   flex-direction: column;
   /* flex-direction: row-reverse; */
 }
-/* 
+
 @media screen and (max-width: 768px) {
   .text7, .buttonText {
     object-fit: none;
   }
-} */
+}

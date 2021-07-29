@@ -4,10 +4,10 @@ import SignupForm from './SignupComp.js'
 import './Dialog.css';
 
 
-function Form({ formSelection }){
+function Form({ formSelection, setCurrentDialog }){
 
     if (formSelection === 1){
-    return  <LoginForm/>
+    return  <LoginForm setCurrentDialog={setCurrentDialog}/>
     } else {
      return <SignupForm />
     };

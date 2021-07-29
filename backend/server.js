@@ -82,25 +82,28 @@ app.get('/progress_history', (req, res) => {
 app.get('/help_requests', (req, res) => {
   db.query("SELECT users.user_id, users.profile_pic, users.first_name, help_requests.date_created, help_requests.done FROM help_requests JOIN users ON help_requests.user_id = users.user_id WHERE done IS NULL", function(err, result) {
     console.log(err)  
+    console.log(res.data)
     res.send(result)
   })
 });
 
-// app.put("/update", (req, res) => {
-//   const id = req.body.id;
-//   const done = req.body.done;
-//   db.query(
-//       "UPDATE help_requests SET done = ? WHERE id = ?",
-//       [id, done],
-//       (err, result) => {
-//           if (err) {
-//               console.log(err)
-//           } else {
-//               res.send(result)
-//           }
-//       }
-//   )
-// })
+app.put("/update", (req, res) => {
+  const id = req.body.id;
+  const done = req.body.done;
+  console.log(id)
+  db.query(
+
+      "UPDATE help_requests SET done = ? WHERE id = ?",
+      [id, done],
+      (err, result) => {
+          if (err) {
+              console.log(err)
+          } else {
+              res.send(result)
+          }
+      }
+  )
+})
 
 app.listen(4001)
 

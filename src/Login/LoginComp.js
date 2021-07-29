@@ -8,48 +8,33 @@ import Projects from '..//Project.js';
 import {useHistory, Route} from 'react-router-dom'
 
 
-function LoginForm() {
+function LoginForm({setCurrentUser}) {
 
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
-  const handleLogin = (id) => {
-    axios
-      .post("http://localhost:4001/login", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        history.push("/dashboard" + id)
-        console.log(response.status)
-        console.log("Login Successful")
-        alert("Successfully logged in")
-      })
-      .catch((err) => {
-        console.log(err)
-        alert("Incorrect email or password")
-      }, [])
-  }
 let history = useHistory()
 
-// const handleLogin = (id) => {
-//   axios.post('http://localhost:4001/login', {
-//     "email": email,
-//     "password": password,
-//   })
-//   .then(response => {
-//     console.log(response.data)
-//     history.push('/dashboard/')
-//     console.log(response.status)
-//     console.log("Login Successful")
-//     alert("Successfully logged in")
+  const handleLogin = () => {
+  axios.post('http://localhost:4001/login', {
+    "email": email,
+    "password": password,
+ })
+  .then((response => {
+   console.log(response.data)
+  //  setCurrentUser(response.data[0])
+   console.log (response.data[0].userid)
+   history.push('/dashboard/' + response.data[0].user_id)
+   console.log(response.status)
+   console.log("Login Successful")
+   alert("Successfully logged in")
     
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     alert("Incorrect email or password")
-//   })
-// }
+ }))
+ .catch(err => {
+   console.log(err)
+   alert("Incorrect email or password")
+  })
+}
   
 return(
  
