@@ -8,29 +8,30 @@ import Projects from '..//Project.js';
 import {useHistory, Route} from 'react-router-dom'
 
 
-function LoginForm() {
+function LoginForm({setCurrentUser}) {
 
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
-let history = useHistory()
+//let history = useHistory()
 
-const handleLogin = (id) => {
-  axios.post('http://localhost:4001/login', {
+  const handleLogin = () => {
+  axios.post('http://localhost:4000/login', {
     "email": email,
     "password": password,
-  })
-  .then(response => {
-    console.log(response.data)
-    history.push('/dashboard/')
-    console.log(response.status)
-    console.log("Login Successful")
-    alert("Successfully logged in")
+ // })
+  //.then(response => {
+   // console.log(response.data)
+  //  setCurrentUser(response.data[0])
+  //  history.push('/dashboard/' + response.data[0].user_id)
+   // console.log(response.status)
+   // console.log("Login Successful")
+   // alert("Successfully logged in")
     
-  })
-  .catch(err => {
-    console.log(err)
-    alert("Incorrect email or password")
+ // })
+ // .catch(err => {
+ //   console.log(err)
+ //   alert("Incorrect email or password")
   })
 }
   

@@ -137,7 +137,7 @@ const styles = useStyles()
 const classes = useStyling();
 const [project, setProject] = useState([])
 const [help, setHelp] = useState([])
-const [users, setUsers] = useState([])
+const [checkUsers, setCheckUsers] = useState({})
 const [done, setDone] = useState([])
 
 const [id, setId] = useState([])
@@ -152,14 +152,15 @@ useEffect(() => {
   axios.get("http://localhost:4000/help_requests")
     .then(response => {
       setHelp(response.data)
-      
+      setDone(response.data)
+      setId(response.data)
     })
   },[]) 
 
 useEffect(() => {
   axios.get("http://localhost:4000/users")
     .then(response => {
-      setUsers(response.data)
+      
     })
   },[]) 
 
@@ -178,27 +179,28 @@ const getHumanDate = (dateToChange) => {
 function updateTask() {
 
   axios.put("http://localhost:4000/update", {
-  done: done,
-  user_id: id
+    done: checkUsers
 })
   .then(response => {
-    console.log(response.data)
-    setDone(new Array(response.data.length).fill(false))
-    console.log("updated")
+    console.log("user helped")
     }
   )}
 
   const handleCheck = (i) => {
-    const done = "string"
-    Boolean(done)
-       
-    let temp = [...done]
+  let temp = {...checkUsers}
 
-    temp[i] = !done[i];
-
-    setDone(temp)
-
+  if (Object.keys(temp).includes(i.user_id)) {
+    temp.remove(i.user_id)
+  } else {
+    let date = i.date_created;
+    date = new Date(date)
+    console.log(date)
+    temp[i.user_id] = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
   }
+
+  console.log(temp)
+  setCheckUsers(temp)
+}
   const [isZoomed, setIsZoomed] = useState(false)
   const handleImgLoad = () => {
     setIsZoomed(isZoomed)
@@ -294,8 +296,8 @@ return (
     {help.map((users, index) => ( 
       <div id="content1">    
         <div className="checkmain">
-          <input id="checkbox" type="checkbox" value={done[index]}
-          onChange={() => {handleCheck(index)}} />
+          <input id="checkbox" type="checkbox"
+          onChange={() => {handleCheck(users)}} />
         </div>
 
         <Card classes={{root: styles.cards}} elevation={3}>

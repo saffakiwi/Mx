@@ -9,11 +9,11 @@ import Footer from './footer';
 import "../componentsCSS/homepage.css"
 
 
-export default function Homepage() {
+export default function Homepage({ setCurrentUser }) {
     return (
 
         <div className="root">
-            <Header />
+            <Header setCurrentUser={setCurrentUser}/>
             <Banner />
             <WeOffer />
             <DigitalSkills />
