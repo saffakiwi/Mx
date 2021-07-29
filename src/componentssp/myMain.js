@@ -17,6 +17,8 @@ import TabProgressTracker from "./tabProgressTracker"
 import TabStudentProfiles from "./tabStudentProfiles"
 import Projects from "../Project"
 import Navigation from "./navigation"
+import { useEffect } from "react"
+import axios from "axios"
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -82,7 +84,7 @@ const styles = makeStyles((theme) => ({
   },
 }))
 
-export default function MyMain(props) {
+export default function MyMain() {
   const [drawerState, setDrawerState] = useState(false)
   const [drawerWidth, setDrawerWidth] = useState("70px")
   const [profilePic, setProfilePic] = useState("hidden")
@@ -98,6 +100,15 @@ export default function MyMain(props) {
   const handleClick = (prop) => {
     setPage(prop)
   }
+
+  //--------teacher profile_pic
+  const [teacher, setTeacher] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:4001/teachers").then((response) => {
+      setTeacher(response.data)
+    })
+  }, [])
 
   function toggleDrawerState() {
     if (drawerState == false) {
@@ -145,11 +156,15 @@ export default function MyMain(props) {
         open={drawerState}
       >
         <List>
-          <img
-            src="./photos/userBig.png"
-            alt="teacher profile pic"
-            style={{ marginTop: "100px", visibility: profilePic }}
-          />
+          {teacher.map((teacher) => {
+            return (
+              <img
+                src={teacher.profile_pic}
+                alt="teacher profile pic"
+                style={{ marginTop: "100px", visibility: profilePic }}
+              />
+            )
+          })}
           {/* <Link to="/progresstracker" className={classes.tabLinks}> */}
           <ListItem button value="b1" onClick={() => handleClick("b1")}>
             <ListItemIcon>

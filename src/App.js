@@ -26,7 +26,7 @@ function App() {
       <Switch>
         <Route path="/users/:user_id" exact component={ProView} />
         <Route exact path="/dashboard">
-          <MyMain users={users} />
+          <MyMain />
         </Route>
         <Route exact path="/">
           <Homepage />

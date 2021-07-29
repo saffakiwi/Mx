@@ -44,7 +44,6 @@ export default function TabProgressTracker() {
             </span>
           </div>
 
-          {console.log(users)}
           {/* div for students */}
           {users.map((user) => {
             return (
