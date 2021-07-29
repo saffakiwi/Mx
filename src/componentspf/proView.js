@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './header1.js';
 import Footer from './footer';
-import { Box, Container, Grid, Card, Button, Link, makeStyles, CardContent } from '@material-ui/core';
+import { Box, Container, Grid, Card, Button, makeStyles, CardContent } from '@material-ui/core';
 import Project from './Bk2Proj.png';
 import Dash from './Bk2Db.png';
 import EditBtn from './EditBtn.png';
@@ -41,7 +41,7 @@ const useStyles = makeStyles({
         textAlign: "justify",
     },
     left1: {
-        display: "flex",
+        display: "block",
         padding: '7px',
         margin: "auto",
         alignItems: 'centre',
@@ -166,7 +166,7 @@ export default function ProView({ match }) {
                             </Grid>
                             <div className={classes.btn} >
                                 <Button><img src={Project} style={{ height: "35px", width: "150px" }} /></Button>
-                                <a href='../dashboard'><Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button></a>
+                                <a href='../dashboard/:user_id'><Button> <img src={Dash} style={{ height: "35px", width: "150px" }} /></Button></a>
                             </div>
                         </Container>
                     </Box>

@@ -9,11 +9,10 @@ import {
   Toolbar,
   BottomNavigation,
   BottomNavigationAction,
-} from "@material-ui/core"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+} from "@material-ui/core";
+
 import { makeStyles } from "@material-ui/core/styles"
 import { useState, useEffect } from "react";
-import Navigation from "./navigation";
 import TabProgressTracker from "./tabProgressTracker";
 import TabStudentProfiles from "./tabStudentProfiles";
 import Projects from "../ProjectSubmissions/Projects";
@@ -135,7 +134,7 @@ export default function MyMain(props) {
       return <TabStudentProfiles />
     } else if (page === "b3") {
       return <Projects />
-    }
+    } 
     
     
   }
@@ -253,7 +252,7 @@ export default function MyMain(props) {
                 icon={<img src="/settingIcon.png" alt="settings" />}
                 className={classes.bottomNavAction}
               />
-              <BottomNavigationAction
+              <BottomNavigationAction 
                 label="Logout"
                 icon={<img src="/logoutIcon.png" alt="logout" />}
                 className={classes.bottomNavAction}

@@ -258,9 +258,9 @@ return (
             </div>
     
             <div id="subname">
-              <div className="subcontent"><h2 className="cardtext">{users.first_name.toUpperCase()} submitted their project</h2></div>
+              <div className="subcontent"><h3 id="subname">{users.first_name.toUpperCase()} submitted their project</h3></div>
       
-                <ControlledZoom className="imagezoom" isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+                <ControlledZoom className="subtime" isZoomed={isZoomed} onZoomChange={handleZoomChange}>
                 <img id="photo" 
                   src={'/' + users.submission} 
                   alt="screenshot"
@@ -302,7 +302,7 @@ return (
             </div>
             
             <div id="helpname"> 
-              <div><h5 className="cardtext">{users.first_name.toUpperCase()} wants to show you their project</h5></div>
+              <div><h3 classname="textstyle">{users.first_name.toUpperCase()} wants to show you their project</h3></div>
             </div>
                 
             <div id="helptime">

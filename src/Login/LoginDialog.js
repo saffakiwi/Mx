@@ -8,7 +8,6 @@ import TeacherText from './JSXcomponents/TeacherText.js';
 import Cross from './JSXcomponents/Cross.js';
 import CrossOne from './JSXcomponents/CrossOne.js';
 import FormLS from './FormLS.js';
-import {useState} from 'react';
 
 
 const useStyles = makeStyles({

@@ -113,7 +113,11 @@
   color: #6c6c6c;
   font-size: 14px;
 }
-
+.textstyle {
+  font-family: OpenSans-Bold;
+  color: #6c6c6c;
+  font-size: 18px;
+}
 /* p {
   font-family: OpenSans-Bold;
   color: white;
@@ -159,19 +163,20 @@
 #subname {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
 }
 
-.subcontent {
+#subcontent {
   display: flex;
   justify-content: flex-start;
 }
 
 #subtime {
   display: flex;
-  width: 35%;
+  width: 25%;
   justify-content: flex-end;
   margin-top: 30px;
+  color: #707070;
 }
 
 #navicon {

@@ -4,10 +4,10 @@ import LoginButton from './JSXcomponents/LoginButton.js';
 import './Dialog.css';
 import axios from 'axios';
 import {useState} from 'react';
-import {useHistory, Route} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 
-function LoginForm({setCurrentUser}) {
+function LoginForm() {
 
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
@@ -24,15 +24,13 @@ let history = useHistory()
    history.push('/dashboard/' + response.data[0].user_id)
    console.log(response.status)
    console.log("Login Successful")
-   alert("Successfully logged in")
-    
   })
  .catch(err => {
  console.log(err)
   alert("Incorrect email or password")
   })
 }
-  
+
 return(
  
   <form className="form">
