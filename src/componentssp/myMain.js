@@ -16,7 +16,7 @@ import { useState } from "react";
 import Navigation from "./navigation";
 import TabProgressTracker from "./tabProgressTracker";
 import TabStudentProfiles from "./tabStudentProfiles";
-import Projects from "../Project";
+import Projects from "../ProjectSubmissions/Projects";
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {

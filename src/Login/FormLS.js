@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Dialog.css';
-import Form from './Form.js';
-
+import LoginForm from './LoginComp';
+import SignupForm from './SignupComp';
 
 export default function FormLS ( {setCurrentUser}) {
 
@@ -9,6 +9,15 @@ const [formSelection, setFormSelection] = useState(1)
 const handleChange = (prop) => {
     console.log(prop)
     setFormSelection(prop)
+}
+
+function Form({ setCurrentDialog }){
+
+    if (formSelection === 1){
+    return  <LoginForm setCurrentDialog={setCurrentDialog}/>
+    } else {
+     return <SignupForm />
+    };
 }
 
 return (
@@ -29,8 +38,8 @@ return (
         </div>
         
 {/*.................................Main form conditional rendering...................................*/}
-        <div>
-            <Form setCurrentUser = {setCurrentUser} className="main" formSelection={formSelection}/>
+        <div className="main">
+            {Form(formSelection)}
         </div>
     </div>
 )}

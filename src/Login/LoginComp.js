@@ -1,10 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import LoginButton from './LoginButton.js';
+import LoginButton from './JSXcomponents/LoginButton.js';
 import './Dialog.css';
 import axios from 'axios';
 import {useState} from 'react';
-import Projects from '..//Project.js';
 import {useHistory, Route} from 'react-router-dom'
 
 
@@ -19,20 +18,18 @@ let history = useHistory()
   axios.post('http://localhost:4001/login', {
     "email": email,
     "password": password,
- })
-  .then((response => {
+  })
+  .then(response => {
    console.log(response.data)
-  //  setCurrentUser(response.data[0])
-   console.log (response.data[0].userid)
    history.push('/dashboard/' + response.data[0].user_id)
    console.log(response.status)
    console.log("Login Successful")
    alert("Successfully logged in")
     
- }))
+  })
  .catch(err => {
-   console.log(err)
-   alert("Incorrect email or password")
+ console.log(err)
+  alert("Incorrect email or password")
   })
 }
   

@@ -2,11 +2,11 @@ import './Dialog.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Students from './Students.js';
-import StudentsText from './StudentsText.js';
-import TeacherText from './TeacherText.js';
-import Cross from './Cross.js';
-import CrossOne from './CrossOne.js';
+import Students from './JSXcomponents/Students.js';
+import StudentsText from './JSXcomponents/StudentsText.js';
+import TeacherText from './JSXcomponents/TeacherText.js';
+import Cross from './JSXcomponents/Cross.js';
+import CrossOne from './JSXcomponents/CrossOne.js';
 import FormLS from './FormLS.js';
 import {useState} from 'react';
 

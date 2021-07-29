@@ -10,7 +10,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import { useState, useEffect, useCallback } from 'react';
 import './projects.css';
 import axios from 'axios';
-import AppDrawer from './componentssp/appDrawer.js';
 import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
@@ -130,7 +129,7 @@ content: {
 },
 }));
 
-function Projects() {
+function Projects({currentUser}) {
 
 //makeStyles state
 const styles = useStyles()
@@ -139,30 +138,29 @@ const [project, setProject] = useState([])
 const [help, setHelp] = useState([])
 const [checkUsers, setCheckUsers] = useState({})
 const [done, setDone] = useState([])
-
 const [id, setId] = useState([])
+
 useEffect(() => {
-  axios.get("http://localhost:4000/progress_history")
+  axios.get("http://localhost:4001/progress_history")
     .then(response => {
       setProject(response.data)
   })
 },[]) 
 
 useEffect(() => {
-  axios.get("http://localhost:4000/help_requests")
+  axios.get("http://localhost:4001/help_requests")
     .then(response => {
       setHelp(response.data)
       setDone(response.data)
       setId(response.data)
     })
   },[]) 
-
-useEffect(() => {
-  axios.get("http://localhost:4000/users")
-    .then(response => {
-      
-    })
-  },[]) 
+  useEffect(() => {
+    axios.get("http://localhost:4001/users")
+      .then(response => {
+        
+      })
+    },[])
 
 const getHumanDate = (dateToChange) => {
   const date = new Date(dateToChange)
@@ -178,7 +176,7 @@ const getHumanDate = (dateToChange) => {
 
 function updateTask() {
 
-  axios.put("http://localhost:4000/update", {
+  axios.put("http://localhost:4001/update", {
     done: checkUsers
 })
   .then(response => {

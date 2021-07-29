@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
-import SignupButton from './SignupButton.js'
+import SignupButton from './JSXcomponents/SignupButton.js'
 import './Dialog.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
