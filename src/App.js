@@ -6,15 +6,14 @@ import MyMain from "../src/componentssp/myMain"
 import ProView from "./componentspf/proView"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import TabProgressTracker from "./componentssp/tabProgressTracker"
+
 
 function App() {
   const [users, setUsers] = useState([])
   // const [userInfo, setUserInfo] = useState([])
   const [currentUser, setCurrentUser] = useState({})
   useEffect(() => {
-    axios
-      .get("http://localhost:4001/users")
+    axios.get("http://localhost:4001/users")
       .then((res) => {
         setUsers(res.data)
       })

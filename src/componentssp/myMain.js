@@ -16,7 +16,7 @@ import { useState } from "react";
 import Navigation from "./navigation";
 import TabProgressTracker from "./tabProgressTracker";
 import TabStudentProfiles from "./tabStudentProfiles";
-import Projects from "../Project";
+import Projects from "../ProjectSubmissions/Projects";
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -92,7 +92,7 @@ export default function MyMain(props) {
   const [caretColor, setCaretColor] = useState("#43C0F6")
   const classes = styles()
   // -----------conditional rendering
-  const [page, setPage] = useState("")
+  const [page, setPage] = useState("b1")
 
   // ------Conditional rendering function
   const handleClick = (prop) => {

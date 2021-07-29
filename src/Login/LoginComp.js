@@ -1,10 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import LoginButton from './LoginButton.js';
+import LoginButton from './JSXcomponents/LoginButton.js';
 import './Dialog.css';
 import axios from 'axios';
 import {useState} from 'react';
-import Projects from '..//Project.js';
 import {useHistory, Route} from 'react-router-dom'
 
 
@@ -13,25 +12,24 @@ function LoginForm({setCurrentUser}) {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
-//let history = useHistory()
+let history = useHistory()
 
   const handleLogin = () => {
-  axios.post('http://localhost:4000/login', {
+  axios.post('http://localhost:4001/login', {
     "email": email,
     "password": password,
- // })
-  //.then(response => {
-   // console.log(response.data)
-  //  setCurrentUser(response.data[0])
-  //  history.push('/dashboard/' + response.data[0].user_id)
-   // console.log(response.status)
-   // console.log("Login Successful")
-   // alert("Successfully logged in")
+  })
+  .then(response => {
+   console.log(response.data)
+   history.push('/dashboard/' + response.data[0].user_id)
+   console.log(response.status)
+   console.log("Login Successful")
+   alert("Successfully logged in")
     
- // })
- // .catch(err => {
- //   console.log(err)
- //   alert("Incorrect email or password")
+  })
+ .catch(err => {
+ console.log(err)
+  alert("Incorrect email or password")
   })
 }
   
