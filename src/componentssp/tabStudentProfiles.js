@@ -28,13 +28,13 @@ export default function TabStudentProfiles() {
     <div className="mainDiv">
       <div className="topButtons">
         <img
-          src="./photos/takeScreenshot.png"
+          src="../photos/takeScreenshot.png"
           alt="button for take screenshot"
           className="imgWidth"
         />
-        <img src="./photos/helpCenter.png" alt="button for take help centre" className="imgWidth" />
+        <img src="../photos/helpCenter.png" alt="button for take help centre" className="imgWidth" />
         <img
-          src="./photos/moreProjects.png"
+          src="../photos/moreProjects.png"
           alt="button for take more projects"
           className="imgWidth"
         />
@@ -47,7 +47,7 @@ export default function TabStudentProfiles() {
                 <Card className="studentInnerDiv" key={users.user_id}>
                   <a>
                     <img
-                      src={users.profile_pic}
+                      src={'/' + users.profile_pic}
                       onClick={() => handleChange(users.user_id)}
                       alt="student info"
                       className="studentPic"

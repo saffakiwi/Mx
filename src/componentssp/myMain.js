@@ -12,11 +12,12 @@ import {
 } from "@material-ui/core"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "./navigation";
 import TabProgressTracker from "./tabProgressTracker";
 import TabStudentProfiles from "./tabStudentProfiles";
 import Projects from "../ProjectSubmissions/Projects";
+import axios from 'axios';
 
 const styles = makeStyles((theme) => ({
   drawerPaper: {
@@ -119,6 +120,14 @@ export default function MyMain(props) {
     }
   }
 
+  const [teacher, setTeacher] = useState([])
+ 
+ useEffect(() => {
+ axios.get("http://localhost:4001/teachers").then((response) => {
+ setTeacher(response.data)
+ })
+ }, [])
+
   function Navigation(page) {
     if (page === "b1") {
       return <TabProgressTracker />
@@ -158,11 +167,17 @@ export default function MyMain(props) {
         open={drawerState}
       >
         <List>
+          
+          {teacher.map((teacher) => {
+          return (
           <img
-            src="/userBig.png"
-            alt="teacher profile pic"
-            style={{ marginTop: "100px", visibility: profilePic }}
+          src={'/' + teacher.profile_pic}
+          alt="teacher profile pic"
+          style={{ marginTop: "100px", visibility: profilePic }}
           />
+          )
+          })}
+
           {/* <Link to="/progresstracker" className={classes.tabLinks}> */}
           <ListItem button value="b1" onClick={() => handleClick("b1")}>
             <ListItemIcon>

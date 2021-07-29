@@ -8,7 +8,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import {makeStyles} from '@material-ui/core/styles';
 import { useState, useEffect, useCallback } from 'react';
-import './projects.css';
+import '../projects.css';
 import axios from 'axios';
 import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
@@ -139,6 +139,7 @@ const [help, setHelp] = useState([])
 const [checkUsers, setCheckUsers] = useState({})
 const [done, setDone] = useState([])
 const [id, setId] = useState([])
+const [users, setUsers] = useState([])
 
 useEffect(() => {
   axios.get("http://localhost:4001/progress_history")
@@ -153,14 +154,10 @@ useEffect(() => {
       setHelp(response.data)
       setDone(response.data)
       setId(response.data)
+      console.log(response.data)
     })
   },[]) 
-  useEffect(() => {
-    axios.get("http://localhost:4001/users")
-      .then(response => {
-        
-      })
-    },[])
+ 
 
 const getHumanDate = (dateToChange) => {
   const date = new Date(dateToChange)
@@ -257,15 +254,15 @@ return (
         <Card classes={{root: styles.cards}} elevation={3}>
           <div id="innercard">
             <div id="subav">
-              <Avatar src={users.profile_pic} sizes="large" classes={{root: styles.avatar}} alt="Aiden" />
+              <Avatar src={'/' + users.profile_pic} sizes="large" classes={{root: styles.avatar}} alt="Aiden" />
             </div>
     
             <div id="subname">
-              <div className="subcontent"><h2 id="cardtext">{users.first_name.toUpperCase()} submitted their project</h2></div>
+              <div className="subcontent"><h2 className="cardtext">{users.first_name.toUpperCase()} submitted their project</h2></div>
       
                 <ControlledZoom className="imagezoom" isZoomed={isZoomed} onZoomChange={handleZoomChange}>
                 <img id="photo" 
-                  src={users.submission} 
+                  src={'/' + users.submission} 
                   alt="screenshot"
                   onLoad={handleImgLoad}
                   width="200"
@@ -301,11 +298,11 @@ return (
         <Card classes={{root: styles.cards}} elevation={3}>
           <div id="innercard">
             <div id="helpav">
-              <Avatar src={users.profile_pic} sizes="large" classes={{root: styles.avatar}} alt="Aiden" />
+              <Avatar src={'/' + users.profile_pic} sizes="large" classes={{root: styles.avatar}} alt="Aiden" />
             </div>
             
             <div id="helpname"> 
-              <div><h2 id="cardtext">{users.first_name.toUpperCase()} wants to show you their project</h2></div>
+              <div><h5 className="cardtext">{users.first_name.toUpperCase()} wants to show you their project</h5></div>
             </div>
                 
             <div id="helptime">

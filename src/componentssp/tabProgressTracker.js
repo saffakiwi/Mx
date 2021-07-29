@@ -19,17 +19,17 @@ export default function TabProgressTracker() {
         {/* --------Div for three buttons at top-------------- */}
         <div className="topButtons">
           <img
-            src="/takeScreenshot.png"
+            src="/photos/takeScreenshot.png"
             alt="button for take screenshot"
             className="imgWidth"
           />
           <img
-            src="/helpCenter.png"
+            src="/photos/helpCenter.png"
             alt="button for take help centre"
             className="imgWidth"
           />
           <img
-            src="/moreProjects.png"
+            src="/photos/moreProjects.png"
             alt="button for take more projects"
             className="imgWidth"
           />
@@ -37,10 +37,10 @@ export default function TabProgressTracker() {
         {/* div for inner container */}
         <div className="innerContainer2">
           <div className="innerContainer">
-            <img src="/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
+            <img src="/photos/beginnerCourse.png" alt="beginner course" style={{ width: "20%" }} />
             <span>
-              <img src="/exportIcon.png" alt="export icon"></img>
-              <img src="/exportSpreadSheet.png" alt="exportSpreadSheet" />
+              <img src="/photos/exportIcon.png" alt="export icon"></img>
+              <img src="/photos/exportSpreadSheet.png" alt="exportSpreadSheet" />
             </span>
           </div>
 

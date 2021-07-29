@@ -12,7 +12,7 @@ import "../componentsCSS/homepage.css"
 export default function Homepage({ setCurrentUser }) {
     return (
 
-        <div className="root">
+        <div className="homepage">
             <Header setCurrentUser={setCurrentUser}/>
             <Banner />
             <WeOffer />
