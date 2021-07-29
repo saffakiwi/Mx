@@ -10,15 +10,15 @@ import axios from "axios"
 
 function App() {
   const [users, setUsers] = useState([])
-  // const [userInfo, setUserInfo] = useState([])
+
   const [currentUser, setCurrentUser] = useState({})
   useEffect(() => {
     axios.get("http://localhost:4001/users")
       .then((res) => {
         setUsers(res.data)
       })
-      .then()
-  }, [])
+      .then("user:" + users)
+  }, [] )
 
   return (
     <Router>

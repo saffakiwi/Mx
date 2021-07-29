@@ -55,7 +55,7 @@ app.post('/login', (req, res) => {
   } else {
   if (result.length > 0) {
   console.log("Check Successful")
-  res.status(200).send(result)
+  res.sendStatus(200).send(result)
   } else {
   console.log("Check Unsuccessful")
   res.sendStatus(401)

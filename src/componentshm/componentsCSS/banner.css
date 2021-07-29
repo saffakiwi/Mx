@@ -1,28 +1,21 @@
-* {
-  color: #707070;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .bbbanner {
-  background-image: url("../homepageIMG/bannerIMGs/babyBanner.png") ;
-  height:420px;
+  background-image: url("../homepageIMG/bannerIMGs/babyBanner.png");
+  height: 420px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: contain;
   position: relative;
   align-items: center;
-  
+  color: #707070;
 }
 
 .text7 {
   display: flex;
   flex-direction: column;
   width: 35%;
- padding: 30px 200px 100px; 
- position:absolute;
- 
-
+  padding: 30px 200px 100px;
+  position: absolute;
 }
 .text7 h1 {
   font-size: 50px;
@@ -35,25 +28,22 @@
 }
 
 .bannerButton {
-display: flex;
-flex-direction: row;
-/* width: 100%; */
-/* justify-items: right; */
-right: 23%;
-position: absolute;
-bottom: 14%;
-
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  /* justify-items: right; */
+  right: 23%;
+  position: absolute;
+  bottom: 14%;
 }
-
 
 .subtext {
   height: 40px;
   width: 180px;
   position: absolute;
-right:23%;
+  right: 23%;
   bottom: 5%;
   object-position: bottom;
-
 }
 
 .buttonText {
@@ -61,9 +51,10 @@ right:23%;
   flex-direction: column;
   /* flex-direction: row-reverse; */
 }
-/* 
+
 @media screen and (max-width: 768px) {
-  .text7, .buttonText {
+  .text7,
+  .buttonText {
     object-fit: none;
   }
-} */
+}

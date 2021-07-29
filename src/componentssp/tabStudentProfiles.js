@@ -15,13 +15,13 @@ export default function TabStudentProfiles() {
     axios.get("http://localhost:4001/users").then((response) => {
       setUsers(response.data)
     })
-  })
+  } )
   // -------------------------------------
   const handleChange = (id) => {
     axios.get("http://localhost:4001/users", {}).then((res) => {
       history.push("/users/" + id)
       console.log(id)
-    }, [])
+    }, )
   }
   // ------------------------
   return (
@@ -47,7 +47,11 @@ export default function TabStudentProfiles() {
                 <Card className="studentInnerDiv" key={users.user_id}>
                   <a>
                     <img
+<<<<<<< HEAD
                       src={'/' + users.profile_pic}
+=======
+                      src={'/' + users.profile_pics}
+>>>>>>> d68d94092ce2e070b19b366203dea006b6f60095
                       onClick={() => handleChange(users.user_id)}
                       alt="student info"
                       className="studentPic"
